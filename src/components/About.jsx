@@ -9,17 +9,17 @@ export default function About() {
         <p className="mt-4 text-gray-600">We are Training & HR Consultants specialized in providing Hospitality Industry's Training, Talent Acquisition and Talent Management Solutions. Our team brings decades of experience working with top hospitality brands across the GCC.</p>
 
         <div className="mt-8 grid md:grid-cols-3 gap-6">
-          <div className="p-6 border rounded-lg">
+          <div className="p-6 rounded-lg bg-primary-700 text-white">
             <h3 className="font-semibold">Training & L&D</h3>
-            <p className="mt-2 text-sm text-gray-600">Bespoke training programs including soft skills, leadership development, and operational upskilling delivered on-site or as open workshops.</p>
+            <p className="mt-2 text-sm">Bespoke training programs including soft skills, leadership development, and operational upskilling delivered on-site or as open workshops.</p>
           </div>
-          <div className="p-6 border rounded-lg">
+          <div className="p-6 rounded-lg bg-primary-700 text-white">
             <h3 className="font-semibold">HR Outsourcing</h3>
-            <p className="mt-2 text-sm text-gray-600">Outsourcing of HR and L&D functions, recruitment, and performance management solutions tailored for hospitality operations.</p>
+            <p className="mt-2 text-sm">Outsourcing of HR and L&D functions, recruitment, and performance management solutions tailored for hospitality operations.</p>
           </div>
-          <div className="p-6 border rounded-lg">
+          <div className="p-6 rounded-lg bg-primary-700 text-white">
             <h3 className="font-semibold">Quality & Audit</h3>
-            <p className="mt-2 text-sm text-gray-600">Service audits, mystery shopping and QA programs designed to measure and elevate guest satisfaction.</p>
+            <p className="mt-2 text-sm">Service audits, mystery shopping and QA programs designed to measure and elevate guest satisfaction.</p>
           </div>
         </div>
 

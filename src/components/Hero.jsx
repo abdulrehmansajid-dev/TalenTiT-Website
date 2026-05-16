@@ -3,7 +3,7 @@ import React from 'react'
 export default function Hero() {
   const bg = 'https://images.unsplash.com/photo-1501117716987-c8e3c5b9f6c6?w=1600&q=80&auto=format&fit=crop'
   return (
-    <section id="home" className="pt-24 min-h-[72vh] flex items-center text-white bg-hero" style={{ backgroundImage: `linear-gradient(rgba(3,6,23,0.55), rgba(3,6,23,0.55)), url(${bg})` }}>
+    <section id="home" className="pt-24 min-h-[72vh] flex items-center text-white bg-hero" style={{ backgroundImage: `linear-gradient(rgba(3,6,23,0.6), rgba(3,6,23,0.6)), url(${bg})` }}>
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row gap-8 items-center">
         <div className="flex-1 fade-in-up">
           <h1 className="text-4xl md:text-5xl font-bold text-white">TalenTiT Hospitality</h1>
@@ -20,5 +20,12 @@ export default function Hero() {
         </div>
       </div>
     </section>
+
+    {/* Banner image with custom site name (user-provided) */}
+    <div className="mx-auto max-w-6xl px-6 mt-8">
+      <div className="rounded-lg overflow-hidden shadow-lg">
+        <img src="/src/assets/banner.jpeg" alt="Site banner" className="w-full h-40 object-cover" />
+      </div>
+    </div>
   )
 }
