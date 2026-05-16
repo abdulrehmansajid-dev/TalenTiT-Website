@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import logo from '../assets/logo.jpeg'
 
 export default function Navbar() {
   const links = [
@@ -15,9 +16,7 @@ export default function Navbar() {
     <header className="fixed w-full bg-white/75 backdrop-blur z-40 shadow-sm">
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-md bg-accent-500 flex items-center justify-center text-white font-bold" aria-hidden>
-            TT
-          </div>
+          <img src={logo} alt="TalenTiT logo" className="w-10 h-10 object-cover rounded-md shadow-sm" />
           <div className="font-semibold text-lg text-primary-900">TalenTiT</div>
         </div>
 

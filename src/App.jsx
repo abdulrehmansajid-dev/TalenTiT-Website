@@ -6,6 +6,7 @@ import About from './components/About'
 import Roles from './components/Roles'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function Home() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/*" element={<ScrollToSection />} />
       </Routes>
+      <Footer />
     </div>
   )
 }
