@@ -15,13 +15,15 @@ export default function Navbar() {
     <header className="fixed w-full bg-white/75 backdrop-blur z-40 shadow-sm">
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-md bg-primary-500" aria-hidden></div>
-          <div className="font-semibold text-lg">TalenTiT</div>
+          <div className="w-10 h-10 rounded-md bg-accent-500 flex items-center justify-center text-white font-bold" aria-hidden>
+            TT
+          </div>
+          <div className="font-semibold text-lg text-primary-900">TalenTiT</div>
         </div>
 
         <nav className="hidden md:flex gap-6 items-center" aria-label="Primary navigation">
           {links.map(l => (
-            <a key={l.label} href={l.to} className="text-sm text-gray-700 hover:text-primary-500">
+            <a key={l.label} href={l.to} className="text-sm text-gray-700 hover:text-accent-500">
               {l.label}
             </a>
           ))}
