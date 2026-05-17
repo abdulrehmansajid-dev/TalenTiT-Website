@@ -13,27 +13,27 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 w-full z-50 bg-primary-950/98 text-white shadow-2xl border-b border-accent-500/25 backdrop-blur-md">
-      <div className="h-1 bg-gradient-to-r from-accent-500 via-accent-300 to-primary-700" />
+    <header className="sticky top-0 w-full z-50 bg-white/95 text-slate-900 border-b border-slate-200 shadow-sm backdrop-blur">
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <img src={logo} alt="TalenTiT logo" className="w-11 h-11 object-cover rounded-xl shadow-sm ring-2 ring-white/15 bg-white" />
+          <img src={logo} alt="TalenTiT logo" className="w-11 h-11 object-cover rounded-xl shadow-sm ring-1 ring-slate-200 bg-white" />
           <div>
-            <div className="font-semibold text-lg leading-none text-white">TalenTiT</div>
-            <div className="text-[11px] tracking-[0.24em] uppercase text-white/55 mt-1">Hospitality</div>
+            <div className="font-semibold text-lg leading-none text-primary-950">TalenTiT</div>
+            <div className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mt-1">Training & HR consultants</div>
           </div>
         </div>
 
-        <nav className="hidden md:flex gap-3 items-center" aria-label="Primary navigation">
+        <nav className="hidden md:flex gap-2 items-center" aria-label="Primary navigation">
           {links.map(l => (
-            <a key={l.label} href={l.to} className="text-sm font-medium text-white px-4 py-2 rounded-full bg-white/7 hover:bg-white/16 hover:text-accent-300 transition-all duration-200 border border-white/10">
+            <a key={l.label} href={l.to} className="text-sm font-medium text-slate-700 px-4 py-2 rounded-full hover:bg-primary-50 hover:text-primary-800 transition-all duration-200">
               {l.label}
             </a>
           ))}
+          <a href="#contact" className="text-sm font-semibold text-white px-4 py-2 rounded-full bg-primary-900 hover:bg-primary-800 transition-colors">Contact</a>
         </nav>
 
         <div className="md:hidden">
-          <button aria-label="Toggle menu" onClick={() => setOpen(v => !v)} className="p-2 rounded-md text-white">
+          <button aria-label="Toggle menu" onClick={() => setOpen(v => !v)} className="p-2 rounded-md text-slate-700">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
             </svg>
@@ -43,10 +43,10 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-primary-950 text-white shadow-lg border-t border-accent-500/25">
+        <div className="md:hidden bg-white text-slate-900 shadow-lg border-t border-slate-200">
           <div className="px-6 py-4 flex flex-col gap-3">
             {links.map(l => (
-              <a key={l.label} href={l.to} onClick={() => setOpen(false)} className="py-2 text-white/95 hover:text-accent-300 transition-colors duration-200">
+              <a key={l.label} href={l.to} onClick={() => setOpen(false)} className="py-2 text-slate-700 hover:text-primary-800 transition-colors duration-200">
                 {l.label}
               </a>
             ))}

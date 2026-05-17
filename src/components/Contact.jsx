@@ -17,10 +17,9 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&q=80&auto=format&fit=crop')] bg-cover bg-center opacity-5" />
-      <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-8 relative z-10">
-        <div className="rounded-[2rem] p-7 md:p-8 bg-primary-950 text-white shadow-2xl shadow-primary-950/10">
+    <section id="contact" className="py-20 bg-slate-50">
+      <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-8">
+        <div className="rounded-2xl p-7 md:p-8 bg-primary-900 text-white border border-primary-800">
           <span className="inline-flex px-3 py-1 rounded-full bg-accent-500/15 text-accent-300 text-xs tracking-[0.2em] uppercase">Get in touch</span>
           <h2 className="mt-4 text-4xl font-semibold leading-tight text-white">Contact / Feedback</h2>
           <p className="mt-3 text-white/82 leading-7">Use the form to send feedback or enquiries — we typically respond within 48 hours.</p>
@@ -38,7 +37,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="rounded-[2rem] p-7 md:p-8 bg-white border border-slate-200 shadow-2xl shadow-primary-950/5">
+        <div className="rounded-2xl p-7 md:p-8 bg-white border border-slate-200 shadow-sm">
           <form ref={form} onSubmit={sendEmail} className="grid gap-4">
             <input name="user_name" required className="p-4 border border-slate-200 rounded-2xl bg-white/95 focus:outline-none focus:ring-2 focus:ring-accent-500/30" placeholder="Your name" />
             <input name="user_email" type="email" required className="p-4 border border-slate-200 rounded-2xl bg-white/95 focus:outline-none focus:ring-2 focus:ring-accent-500/30" placeholder="Your email" />
