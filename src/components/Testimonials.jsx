@@ -38,7 +38,7 @@ export default function Testimonials() {
           <h2 className="mt-4 text-3xl md:text-4xl font-semibold leading-tight text-primary-950">
             Companies Transformed with Our Recruitment Expertise
           </h2>
-          <p className="mt-4 text-gray-700 leading-7">
+          <p className="mt-4 text-slate-800 leading-7">
             Trusted by hotels, restaurants, clubs and real estate groups across the GCC.
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function Testimonials() {
           <div className="lg:col-span-3 grid gap-4">
             {quotes.map((q) => (
               <div key={q.name} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-lg shadow-primary-950/5">
-                <p className="text-slate-700 text-base leading-7">“{q.quote}”</p>
+                <p className="text-slate-800 text-base leading-7">“{q.quote}”</p>
                 <p className="mt-3 text-sm text-accent-600 font-medium">— {q.name}</p>
               </div>
             ))}
@@ -71,7 +71,7 @@ export default function Testimonials() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
             <div>
               <h3 className="text-xl font-semibold text-primary-950">Client Portfolio</h3>
-              <p className="text-sm text-gray-600">Selected hospitality logos from the companies we transformed.</p>
+              <p className="text-sm text-slate-600">Selected hospitality logos from the companies we transformed.</p>
             </div>
             <div className="text-xs uppercase tracking-[0.2em] text-accent-600">Hotels, Restaurants, Clubs, Real Estate</div>
           </div>

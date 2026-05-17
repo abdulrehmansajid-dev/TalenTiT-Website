@@ -18,7 +18,7 @@ export default function Roles() {
         <div className="max-w-3xl">
           <span className="inline-flex px-3 py-1 rounded-full bg-accent-500/10 text-accent-500 text-xs tracking-[0.2em] uppercase">Open Roles</span>
           <h2 className="mt-4 text-4xl font-semibold text-primary-950 leading-tight">Opportunities built for hospitality professionals.</h2>
-          <p className="mt-4 text-gray-700 text-lg leading-8">Browse current opportunities and reach out to apply. Salary ranges shown are approximate placeholders; exact figures available on enquiry.</p>
+          <p className="mt-4 text-slate-800 text-lg leading-8">Browse current opportunities and reach out to apply. Salary ranges shown are approximate placeholders; exact figures available on enquiry.</p>
         </div>
 
         <div className="mt-10 grid md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -31,7 +31,7 @@ export default function Roles() {
                 </div>
                 <span className="text-xs uppercase tracking-[0.18em] text-accent-500 bg-accent-500/10 rounded-full px-3 py-1">Hiring</span>
               </div>
-              <p className="mt-4 text-gray-700 text-sm leading-7">{r.desc}</p>
+              <p className="mt-4 text-slate-700 text-sm leading-7">{r.desc}</p>
               <div className="mt-4 rounded-2xl bg-primary-950/95 p-4 text-white">
                 <div className="text-[11px] uppercase tracking-[0.2em] text-accent-300">Salary Range</div>
                 <div className="mt-1 text-sm font-medium">{r.salary}</div>

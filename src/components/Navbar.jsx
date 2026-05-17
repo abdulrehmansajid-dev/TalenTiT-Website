@@ -13,7 +13,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 w-full z-50 bg-primary-950/95 text-white shadow-2xl border-b border-accent-500/20 backdrop-blur-md">
+    <header className="sticky top-0 w-full z-50 bg-primary-950/98 text-white shadow-2xl border-b border-accent-500/25 backdrop-blur-md">
       <div className="h-1 bg-gradient-to-r from-accent-500 via-accent-300 to-primary-700" />
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -24,9 +24,9 @@ export default function Navbar() {
           </div>
         </div>
 
-        <nav className="hidden md:flex gap-6 items-center" aria-label="Primary navigation">
+        <nav className="hidden md:flex gap-3 items-center" aria-label="Primary navigation">
           {links.map(l => (
-            <a key={l.label} href={l.to} className="text-sm font-medium text-white px-3 py-2 rounded-full bg-white/5 hover:bg-white/12 hover:text-accent-300 transition-all duration-200 border border-white/5">
+            <a key={l.label} href={l.to} className="text-sm font-medium text-white px-4 py-2 rounded-full bg-white/7 hover:bg-white/16 hover:text-accent-300 transition-all duration-200 border border-white/10">
               {l.label}
             </a>
           ))}
@@ -43,10 +43,10 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-primary-950 text-white shadow-lg border-t border-accent-500/20">
+        <div className="md:hidden bg-primary-950 text-white shadow-lg border-t border-accent-500/25">
           <div className="px-6 py-4 flex flex-col gap-3">
             {links.map(l => (
-              <a key={l.label} href={l.to} onClick={() => setOpen(false)} className="py-2 text-white/90 hover:text-accent-300 transition-colors duration-200">
+              <a key={l.label} href={l.to} onClick={() => setOpen(false)} className="py-2 text-white/95 hover:text-accent-300 transition-colors duration-200">
                 {l.label}
               </a>
             ))}

@@ -13,16 +13,16 @@ export default function Footer(){
           </div>
         </div>
 
-        <div className="text-sm text-white/80">
+        <div className="text-sm text-white/88">
           <div>Phone: +971-552244365</div>
           <div>Email: info@talentitconsultants.com</div>
         </div>
 
-        <div className="text-sm text-white/80">
+        <div className="text-sm text-white/88">
           <div>Business Centre, Sharjah Publishing City Free Zone</div>
         </div>
       </div>
-      <div className="text-center text-white/65 text-sm py-4 bg-primary-950/20">© {new Date().getFullYear()} TalenTiT Hospitality. All rights reserved.</div>
+      <div className="text-center text-white/75 text-sm py-4 bg-primary-950/20">© {new Date().getFullYear()} TalenTiT Hospitality. All rights reserved.</div>
     </footer>
   )
 }
