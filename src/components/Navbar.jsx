@@ -6,8 +6,7 @@ export default function Navbar() {
     { to: '#home', label: 'Home' },
     { to: '#about', label: 'About' },
     { to: '#roles', label: 'Open Roles' },
-    { to: '#testimonials', label: 'Testimonials' },
-    { to: '#contact', label: 'Contact' }
+    { to: '#testimonials', label: 'Testimonials' }
   ]
 
   const [open, setOpen] = useState(false)
@@ -50,6 +49,7 @@ export default function Navbar() {
                 {l.label}
               </a>
             ))}
+            <a href="#contact" onClick={() => setOpen(false)} className="mt-1 inline-flex justify-center text-sm font-semibold text-white px-4 py-2 rounded-full bg-primary-900 hover:bg-primary-800 transition-colors">Contact</a>
           </div>
         </div>
       )}
