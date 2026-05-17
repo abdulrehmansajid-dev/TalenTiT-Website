@@ -12,21 +12,21 @@ export default function About() {
         </div>
 
         <div className="mt-8 grid md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-            <h3 className="font-semibold text-primary-950 text-xl">Training & L&D</h3>
-            <p className="mt-2 text-sm text-slate-700">Bespoke training programs including soft skills, leadership development, and operational upskilling delivered on-site or as open workshops.</p>
+          <div className="p-6 rounded-2xl bg-blue-950 border border-slate-200">
+            <h3 className="font-semibold text-white text-xl">Training & L&D</h3>
+            <p className="mt-2 text-sm text-slate-200">Bespoke training programs including soft skills, leadership development, and operational upskilling delivered on-site or as open workshops.</p>
           </div>
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-            <h3 className="font-semibold text-primary-950 text-xl">HR Outsourcing</h3>
-            <p className="mt-2 text-sm text-slate-700">Outsourcing of HR and L&D functions, recruitment, and performance management solutions tailored for hospitality operations.</p>
+          <div className="p-6 rounded-2xl bg-blue-950 border border-slate-200">
+            <h3 className="font-semibold text-white text-xl">HR Outsourcing</h3>
+            <p className="mt-2 text-sm text-slate-200">Outsourcing of HR and L&D functions, recruitment, and performance management solutions tailored for hospitality operations.</p>
           </div>
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-            <h3 className="font-semibold text-primary-950 text-xl">Quality & Audit</h3>
-            <p className="mt-2 text-sm text-slate-700">Service audits, mystery shopping and QA programs designed to measure and elevate guest satisfaction.</p>
+          <div className="p-6 rounded-2xl bg-blue-950 border border-slate-200">
+            <h3 className="font-semibold text-white text-xl">Quality & Audit</h3>
+            <p className="mt-2 text-sm text-slate-200">Service audits, mystery shopping and QA programs designed to measure and elevate guest satisfaction.</p>
           </div>
         </div>
 
-        <div className="mt-10 grid lg:grid-cols-[280px_1fr] gap-6 items-center rounded-[1.75rem] p-6 md:p-8 bg-slate-50 border border-slate-200">
+        <div className="mt-10 grid lg:grid-cols-[280px_1fr] gap-6 items-center rounded-[1.75rem] p-6 md:p-8 bg-slate-200 border border-slate-200">
           <div className="rounded-[1.25rem] overflow-hidden bg-primary-950">
             <img src={ceo} alt="CEO Zamir A. Abbasi" className="w-full h-[320px] object-cover object-center" />
           </div>

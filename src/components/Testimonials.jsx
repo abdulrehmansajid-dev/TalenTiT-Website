@@ -66,11 +66,11 @@ export default function Testimonials() {
           </aside>
         </div>
 
-        <div className="mt-10 rounded-2xl bg-slate-50 p-6 md:p-8 border border-slate-200">
+        <div className="mt-10 rounded-2xl bg-slate-200 p-6 md:p-8 border border-slate-200">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
             <div>
               <h3 className="text-xl font-semibold text-primary-950">Client Portfolio</h3>
-              <p className="text-sm text-slate-600">Selected hospitality logos from the companies we transformed.</p>
+              <p className="text-sm text-slate-800">Selected hospitality logos from the companies we transformed.</p>
             </div>
             <div className="text-xs uppercase tracking-[0.2em] text-accent-600">Hotels, Restaurants, Clubs, Real Estate</div>
           </div>
