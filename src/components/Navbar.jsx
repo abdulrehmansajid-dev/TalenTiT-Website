@@ -7,30 +7,30 @@ export default function Navbar() {
   const [trainingOpen, setTrainingOpen] = useState(false)
 
   const NavItem = ({ to, children, onClick }) => (
-    <NavLink to={to} onClick={onClick} className={({ isActive }) => `text-sm font-medium px-3 py-2 rounded-full transition-all duration-200 ${isActive ? 'text-primary-900 bg-primary-50' : 'text-slate-700 hover:bg-primary-50 hover:text-primary-800'}`}>
+    <NavLink to={to} onClick={onClick} className={({ isActive }) => `text-sm font-medium px-2.5 py-2 rounded-full transition-all duration-200 ${isActive ? 'text-accent-700 bg-white' : 'text-white/95 hover:bg-white/15 hover:text-white'}`}>
       {children}
     </NavLink>
   )
 
   return (
-    <header className="sticky top-0 w-full z-50 bg-white/95 text-slate-900 border-b border-slate-200 shadow-sm backdrop-blur">
-      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+    <header className="sticky top-0 w-full z-50 bg-amber-700 text-white border-b border-accent-400 shadow-md backdrop-blur">
+      <div className="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-3">
             <img src={logo} alt="TalenTiT logo" className="w-11 h-11 object-cover rounded-xl shadow-sm ring-1 ring-slate-200 bg-white" />
             <div>
-              <div className="font-semibold text-lg leading-none text-primary-950">TalenTiT</div>
-              <div className="text-[11px] tracking-[0.2em] uppercase text-slate-500 mt-1">Training & HR consultants</div>
+              <div className="font-semibold text-lg leading-none text-white">TalenTiT</div>
+              <div className="text-[11px] tracking-[0.2em] uppercase text-white/80 mt-1">Training & HR consultants</div>
             </div>
           </Link>
         </div>
 
-        <nav className="hidden md:flex items-center whitespace-nowrap gap-0" aria-label="Primary navigation">
+        <nav className="hidden md:flex items-center whitespace-nowrap gap-1" aria-label="Primary navigation">
           <NavItem to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</NavItem>
           <NavItem to="/about">Who we are ?</NavItem>
 
           <div className="relative" onMouseEnter={() => setTrainingOpen(true)} onMouseLeave={() => setTrainingOpen(false)}>
-            <button onClick={() => setTrainingOpen(v => !v)} className="text-sm font-medium text-slate-700 px-3 py-2 hover:bg-primary-50 hover:text-primary-800 transition-all duration-200 inline-flex items-center gap-2">
+            <button onClick={() => setTrainingOpen(v => !v)} className="text-sm font-medium text-white/95 px-2.5 py-2 rounded-full hover:bg-white/15 hover:text-white transition-all duration-200 inline-flex items-center gap-2">
               Training Services
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -53,7 +53,7 @@ export default function Navbar() {
         </nav>
 
         <div className="md:hidden">
-          <button aria-label="Toggle menu" onClick={() => setOpen(v => !v)} className="p-2 rounded-md text-slate-700">
+          <button aria-label="Toggle menu" onClick={() => setOpen(v => !v)} className="p-2 rounded-md text-white">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
             </svg>
@@ -63,25 +63,25 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-white text-slate-900 shadow-lg border-t border-slate-200">
+        <div className="md:hidden bg-accent-500 text-white shadow-lg border-t border-accent-400">
           <div className="px-6 py-4 flex flex-col gap-2">
-            <Link to="/" onClick={() => setOpen(false)} className="py-2 text-slate-700 hover:text-primary-800">Home</Link>
-            <Link to="/about" onClick={() => setOpen(false)} className="py-2 text-slate-700 hover:text-primary-800">Who we are ?</Link>
+            <Link to="/" onClick={() => setOpen(false)} className="py-2 text-white/95 hover:text-white">Home</Link>
+            <Link to="/about" onClick={() => setOpen(false)} className="py-2 text-white/95 hover:text-white">Who we are ?</Link>
 
             <div className="py-2">
-              <button onClick={() => setTrainingOpen(v => !v)} className="w-full text-left text-slate-700 py-2">Training Services</button>
+              <button onClick={() => setTrainingOpen(v => !v)} className="w-full text-left text-white/95 py-2">Training Services</button>
               {trainingOpen && (
                 <div className="pl-4">
-                  <Link to="/training/soft-skills" onClick={() => { setOpen(false); setTrainingOpen(false) }} className="block py-2 text-slate-600">Soft Skills Training</Link>
-                  <Link to="/training/leadership" onClick={() => { setOpen(false); setTrainingOpen(false) }} className="block py-2 text-slate-600">Leadership Training</Link>
-                  <Link to="/training" onClick={() => { setOpen(false); setTrainingOpen(false) }} className="block py-2 text-slate-600">All Training Services</Link>
+                  <Link to="/training/soft-skills" onClick={() => { setOpen(false); setTrainingOpen(false) }} className="block py-2 text-white/80">Soft Skills Training</Link>
+                  <Link to="/training/leadership" onClick={() => { setOpen(false); setTrainingOpen(false) }} className="block py-2 text-white/80">Leadership Training</Link>
+                  <Link to="/training" onClick={() => { setOpen(false); setTrainingOpen(false) }} className="block py-2 text-white/80">All Training Services</Link>
                 </div>
               )}
             </div>
 
-            <Link to="/hiring" onClick={() => setOpen(false)} className="py-2 text-slate-700 hover:text-primary-800">Hiring & Selection</Link>
-            <Link to="/roles" onClick={() => setOpen(false)} className="py-2 text-slate-700 hover:text-primary-800">Open Roles</Link>
-            <Link to="/contact" onClick={() => setOpen(false)} className="mt-1 inline-flex justify-center text-sm font-semibold text-white px-4 py-2 rounded-full bg-primary-900 hover:bg-primary-800 transition-colors">Contact Us</Link>
+            <Link to="/hiring" onClick={() => setOpen(false)} className="py-2 text-white/95 hover:text-white">Hiring & Selection</Link>
+            <Link to="/roles" onClick={() => setOpen(false)} className="py-2 text-white/95 hover:text-white">Open Roles</Link>
+            <Link to="/contact" onClick={() => setOpen(false)} className="mt-1 inline-flex justify-center text-sm font-semibold text-accent-700 px-4 py-2 rounded-full bg-white hover:bg-orange-50 transition-colors">Contact Us</Link>
           </div>
         </div>
       )}
