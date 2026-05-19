@@ -21,8 +21,7 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl">
           <span className="inline-flex px-3 py-1 rounded-full bg-primary-900 text-white text-xs tracking-[0.2em] uppercase">Contact</span>
-          <h2 className="mt-4 section-title font-semibold">Let’s talk about your hospitality goals.</h2>
-          <p className="mt-4 section-text text-lg">Send your enquiry or feedback and we will respond within 48 hours.</p>
+          <h2 className="mt-4 section-title font-semibold">Contact</h2>
         </div>
 
         <div className="mt-10 grid lg:grid-cols-5 gap-6 items-stretch">
@@ -57,11 +56,12 @@ export default function Contact() {
 
             <div className="mt-7 rounded-xl bg-white/10 border border-white/15 p-4">
               <h4 className="font-semibold text-white">Our Focus</h4>
-              <p className="text-white/85 mt-2 text-sm leading-7">Training, HR outsourcing, talent acquisition, quality assurance, and bespoke L&D solutions for hospitality teams.</p>
+              <p className="text-white/85 mt-2 text-sm leading-7">L&D (in-company hospitality staff training programs including Leadership Development), Talent Acquisition (Search & Selection), Service & Quality Audits (Mystery Shopping), Outsourcing of HR & Training functions and HR Consultancy.</p>
             </div>
           </aside>
 
           <div className="lg:col-span-3 rounded-2xl p-7 md:p-8 bg-slate-50 border border-slate-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
+            <div className="mb-4 text-lg font-medium">Get In-Touch:</div>
             <form ref={form} onSubmit={sendEmail} className="grid gap-4">
               <label className="text-sm font-medium text-slate-700 flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary-700" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 2a5 5 0 00-3 9v2a1 1 0 001 1h4a1 1 0 001-1V11a5 5 0 00-3-9z" clipRule="evenodd"/></svg>

@@ -33,7 +33,7 @@ export default function About() {
           <div>
             <span className="inline-flex px-3 py-1 rounded-full bg-accent-500/10 text-accent-500 text-xs tracking-[0.2em] uppercase">Leadership</span>
             <h3 className="mt-3 text-2xl md:text-3xl font-semibold text-primary-950">Zamir A. Abbasi — CEO & Founder</h3>
-            <p className="text-slate-700 mt-3 leading-7 max-w-2xl">A Master Degree holder in HRM with two decades of experience heading HR and training departments for top hospitality brands including Hyatt, Ritz Carlton, IHG, Radisson Blu and Millennium Hotels across the GCC. Certified hospitality trainer and award winner in HR and training.</p>
+            <p className="text-slate-700 mt-3 leading-7 max-w-2xl">Over the past 25 years, leading the HR and L&D functions of the Global Hospitality / Corporate Organizations.  Being a Certified Trainer and Leadership Coach, his experience is a  blend of expertise and innovation.  Beside being Certified Trainer from AHLEI USA and Leadership Coach from Carlson Rezidor Business School, he got a hallmark of being awarded as Advance Leader Bronze & Advanced Communicator Bronz from Toastmasters Leadership Institute. He has navigated the complex landscapes of HR and L&D, leading the way for five iconic global hospitality brands in the Middle East (KSA, Bahrain, Qatar & UAE). His mission is simple: to hire, engage and develop world-class leaders and high-performing teams. Whether as a HR Professional, Soft Skills Trainer, Leadership Coach or OD Specialist, he brings deep regional insights and a passion for growth to every project.</p>
           </div>
         </div>
 

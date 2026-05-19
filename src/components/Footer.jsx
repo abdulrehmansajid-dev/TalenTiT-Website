@@ -13,13 +13,14 @@ export default function Footer(){
               <div className="text-sm text-white/70">Training · HR Outsourcing · Talent Acquisition</div>
             </div>
           </div>
-          <p className="mt-4 text-sm text-white/70 leading-7">Helping hospitality organizations hire smarter, train better, and deliver service excellence.</p>
+          <p className="mt-4 text-sm text-white/70 leading-7">“Expert Hoteliers; 
+Transforming Future Hoteliers”</p>
         </div>
 
         <div className="text-sm text-white/85 leading-7">
           <div className="font-semibold text-white mb-2">Contact</div>
           <div>Phone: +971-552244365</div>
-          <div>Email: info@talentitconsultants.com</div>
+          <div>Email: info@talentithospitality.com</div>
           <div>Website: www.talentithospitality.com</div>
         </div>
 

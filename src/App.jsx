@@ -7,12 +7,22 @@ import Roles from './components/Roles'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Training from './components/Training'
+import SoftSkills from './components/SoftSkills'
+import Leadership from './components/Leadership'
+import Hiring from './components/Hiring'
+import Services from './components/Services'
 
 function Home() {
   return (
     <div className="smooth-scroll">
       <Hero />
       <About />
+      <Training />
+      <SoftSkills />
+      <Leadership />
+      <Hiring />
+      <Services />
       <Roles />
       <Testimonials />
       <Contact />
@@ -23,10 +33,19 @@ function Home() {
 function ScrollToSection() {
   const { pathname } = useLocation()
   useEffect(() => {
-    const id = pathname.replace('/', '') || 'home'
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-    else window.scrollTo({ top: 0, behavior: 'smooth' })
+    // compute id from path; use last segment (e.g. '/training/soft-skills' -> 'soft-skills')
+    const parts = pathname.split('/').filter(Boolean)
+    const id = parts.length ? parts[parts.length - 1] : 'home'
+    // small delay to ensure elements are mounted
+    const t = setTimeout(() => {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+    }, 50)
+    return () => clearTimeout(t)
   }, [pathname])
   return <Home />
 }
@@ -37,7 +56,18 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/*" element={<ScrollToSection />} />
+        {/* Section routes render the Home and scroll to the section (hybrid behavior) */}
+        <Route path="/about" element={<ScrollToSection />} />
+        <Route path="/training" element={<ScrollToSection />} />
+        <Route path="/hiring" element={<ScrollToSection />} />
+        <Route path="/services" element={<ScrollToSection />} />
+        <Route path="/roles" element={<ScrollToSection />} />
+        <Route path="/testimonials" element={<ScrollToSection />} />
+        <Route path="/contact" element={<ScrollToSection />} />
+
+        {/* Training subpage routes should scroll to the corresponding section (hybrid behavior) */}
+        <Route path="/training/soft-skills" element={<ScrollToSection />} />
+        <Route path="/training/leadership" element={<ScrollToSection />} />
       </Routes>
       <Footer />
     </div>
