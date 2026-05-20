@@ -1,10 +1,13 @@
 import React from 'react'
+import SectionHeader from './SectionHeader'
 
 export default function Training() {
   return (
     <section id="training" className="max-w-4xl mx-auto px-6 py-16">
-      <h1 className="text-3xl font-semibold mb-4">Training Services</h1>
-      <p className="text-slate-600 mb-6">We offer a range of training programs tailored to upskill your teams. Choose from soft-skills, leadership, and customized corporate programs.</p>
+      <SectionHeader
+        title="Training Services"
+        description="We offer a range of training programs tailored to upskill your teams. Choose from soft-skills, leadership, and customized corporate programs."
+      />
       <div className="grid gap-4 md:grid-cols-2">
         <div className="p-4 border rounded-lg">
           <h2 className="font-semibold">Soft Skills Training</h2>

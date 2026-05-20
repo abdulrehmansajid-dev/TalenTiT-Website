@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
+import SectionHeader from './SectionHeader'
 
 export default function Contact() {
   const form = useRef()
@@ -19,10 +20,11 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl">
-          <span className="inline-flex px-3 py-1 rounded-full bg-primary-900 text-white text-xs tracking-[0.2em] uppercase">Contact</span>
-          <h2 className="mt-4 section-title font-semibold">Contact</h2>
-        </div>
+        <SectionHeader
+          title="Contact Us"
+          description="Reach out for training, recruitment, HR outsourcing, or tailored hospitality support. We usually reply quickly and can guide you to the right service."
+          className="max-w-3xl"
+        />
 
         <div className="mt-10 grid lg:grid-cols-5 gap-6 items-stretch">
           <aside className="lg:col-span-2 rounded-2xl p-7 md:p-8 bg-primary-900 text-white border border-primary-800 shadow-xl">

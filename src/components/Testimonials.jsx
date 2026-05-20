@@ -1,4 +1,5 @@
 import React from 'react'
+import SectionHeader from './SectionHeader'
 
 const hotelLogos = import.meta.glob('../assets/Hotels&Resorts/*.{png,jpg,jpeg,svg}', {
   eager: true,
@@ -34,9 +35,15 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-6">
+        <SectionHeader
+          title="Organizations We Transformed"
+          description="Selected hospitality, dining, and lifestyle partners that have benefited from our recruitment, training, and HR support."
+          className="max-w-3xl"
+        />
+
         <div className="mt-10 grid lg:grid-cols-5 gap-6 items-start">
           <aside className="lg:col-span-2 rounded-2xl bg-primary-900 text-white p-6 border border-primary-800">
-            <h3 className="font-semibold text-xl text-white">Organizations We Transformed</h3>
+            <h3 className="font-semibold text-xl text-white">Global Reach</h3>
             <ul className="mt-4 space-y-2 text-sm text-white/80 list-disc list-inside">
               <li>Hotels & Resorts: UAE, Qatar, Bahrain & Saudi Arabia</li>
               <li>Restaurants & Clubs: UAE, Qatar & Bahrain</li>
@@ -52,7 +59,7 @@ export default function Testimonials() {
         <div className="mt-10 rounded-2xl bg-slate-200 p-6 md:p-8 border border-slate-200">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
             <div>
-              <h3 className="text-xl font-semibold text-primary-950">Organizations, We Transformed!</h3>
+              <h3 className="text-xl font-semibold text-primary-950">Client Network</h3>
             </div>
             <div className="text-xs uppercase tracking-[0.2em] text-accent-600">Hotels, Restaurants, Clubs, Real Estate</div>
           </div>

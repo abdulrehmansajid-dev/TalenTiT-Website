@@ -1,15 +1,16 @@
 import React from 'react'
 import ceo from '../assets/ceo.jpeg'
+import SectionHeader from './SectionHeader'
 
 export default function About() {
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl">
-          <span className="inline-flex px-3 py-1 rounded-full bg-primary-950 text-white text-xs tracking-[0.2em] uppercase">About TalenTiT</span>
-          <h2 className="mt-4 section-title font-semibold">Who We Are</h2>
-          <p className="mt-4 section-text text-lg max-w-3xl">We are training and HR consultants specialized in hospitality industry training, talent acquisition and talent management solutions. Our team brings decades of experience working with top hospitality brands across the GCC.</p>
-        </div>
+        <SectionHeader
+          title="Who We Are"
+          description="We are training and HR consultants specialized in hospitality industry training, talent acquisition and talent management solutions. Our team brings decades of experience working with top hospitality brands across the GCC."
+          className="max-w-3xl"
+        />
 
         <div className="mt-8 grid md:grid-cols-3 gap-6">
           <div className="p-6 rounded-2xl bg-blue-950 border border-slate-200">

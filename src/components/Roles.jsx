@@ -1,4 +1,5 @@
 import React from 'react'
+import SectionHeader from './SectionHeader'
 
 const sampleRoles = [
   { title: 'Front Desk Associate', location: 'City Center', desc: 'Guest-facing role with check-in/out responsibilities.', salary: 'AED 2,500 - 3,500 (approx)' },
@@ -13,10 +14,11 @@ export default function Roles() {
   return (
     <section id="roles" className="py-20 bg-slate-50">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl">
-          <span className="inline-flex px-3 py-1 rounded-full bg-accent-500/10 text-accent-500 text-xs tracking-[0.2em] uppercase">Open Roles</span>
-          <h2 className="mt-4 section-title font-semibold">Open Roles</h2>
-        </div>
+        <SectionHeader
+          title="Open Roles"
+          description="Browse current hospitality openings across front office, operations, sales, and culinary teams. Each role is shaped for quality, service, and career growth."
+          className="max-w-3xl"
+        />
 
         <div className="mt-10 grid md:grid-cols-2 xl:grid-cols-3 gap-6">
           {sampleRoles.map(r => (
