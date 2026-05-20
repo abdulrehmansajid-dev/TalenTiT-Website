@@ -12,7 +12,7 @@ export default function Hero() {
           </span>
           <h1 className="mt-6 text-5xl md:text-6xl font-semibold leading-[0.95] text-white">Building High-Performance Team.</h1>
           <p className="mt-5 text-white/90 text-lg leading-8 max-w-2xl">We provide recruitment, training, and HR outsourcing solutions designed for hotels, restaurants, and hospitality groups in the Middle East.</p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-5">
             <a href="#services" className="inline-flex items-center px-6 py-3 bg-white text-primary-900 rounded-full font-semibold hover:bg-slate-100 transition">Other Services</a>
             <a href="#roles" className="inline-flex items-center px-6 py-3 bg-accent-600 text-white rounded-full font-semibold hover:bg-accent-700 transition">Open Roles</a>
             <a href="#contact" className="inline-flex items-center px-6 py-3 border border-white/30 text-white rounded-full hover:bg-white/10 transition">Contact Us</a>
