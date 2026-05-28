@@ -49,7 +49,7 @@ export default function Navbar() {
               onClick={() => setTrainingOpen(v => !v)}
               className="text-sm font-medium text-white/95 px-3 py-2.5 rounded-full hover:bg-white/10 hover:text-orange-400 transition-all duration-200 inline-flex items-center gap-2"
             >
-              Training Services
+              Training Catalogue
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -58,16 +58,14 @@ export default function Navbar() {
             {trainingOpen && (
               <div className="absolute right-0 top-full z-50 pt-3 w-64">
                 <div className="rounded-2xl bg-white border border-slate-200 shadow-xl py-2 ring-1 ring-slate-900/5">
-                  <NavLink to="/training/soft-skills" onClick={() => setTrainingOpen(false)} className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-orange-50 hover:text-orange-600">Soft Skills Training</NavLink>
-                  <NavLink to="/training/leadership" onClick={() => setTrainingOpen(false)} className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-orange-50 hover:text-orange-600">Leadership Training</NavLink>
-                  <NavLink to="/training" onClick={() => setTrainingOpen(false)} className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-orange-50 hover:text-orange-600">All Training Services</NavLink>
+                  <NavLink to="/training/leadership" onClick={() => setTrainingOpen(false)} className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-orange-50 hover:text-orange-600">Leadership Development</NavLink>
+                  <NavLink to="/training/soft-skills" onClick={() => setTrainingOpen(false)} className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-orange-50 hover:text-orange-600">Employee Development</NavLink>
                 </div>
               </div>
             )}
           </div>
 
           <NavItem to="/hiring">Hiring & Selection</NavItem>
-          <NavItem to="/roles">Open Roles</NavItem>
           <NavItem to="/contact">Contact Us</NavItem>
         </nav>
 
@@ -91,18 +89,16 @@ export default function Navbar() {
             <Link to="/about" onClick={() => setOpen(false)} className="py-2 text-white/95 hover:text-orange-400">Who we are ?</Link>
 
             <div className="py-2">
-              <button type="button" onClick={() => setTrainingOpen(v => !v)} className="w-full text-left text-white/95 py-2 hover:text-orange-400">Training Services</button>
+              <button type="button" onClick={() => setTrainingOpen(v => !v)} className="w-full text-left text-white/95 py-2 hover:text-orange-400">Training Catalogue</button>
               {trainingOpen && (
                 <div className="pl-4">
-                  <Link to="/training/soft-skills" onClick={() => { setOpen(false); setTrainingOpen(false) }} className="block py-2 text-white/80 hover:text-orange-400">Soft Skills Training</Link>
-                  <Link to="/training/leadership" onClick={() => { setOpen(false); setTrainingOpen(false) }} className="block py-2 text-white/80 hover:text-orange-400">Leadership Training</Link>
-                  <Link to="/training" onClick={() => { setOpen(false); setTrainingOpen(false) }} className="block py-2 text-white/80 hover:text-orange-400">All Training Services</Link>
+                  <Link to="/training/leadership" onClick={() => { setOpen(false); setTrainingOpen(false) }} className="block py-2 text-white/80 hover:text-orange-400">Leadership Development</Link>
+                  <Link to="/training/soft-skills" onClick={() => { setOpen(false); setTrainingOpen(false) }} className="block py-2 text-white/80 hover:text-orange-400">Employee Development</Link>
                 </div>
               )}
             </div>
 
             <Link to="/hiring" onClick={() => setOpen(false)} className="py-2 text-white/95 hover:text-orange-400">Hiring & Selection</Link>
-            <Link to="/roles" onClick={() => setOpen(false)} className="py-2 text-white/95 hover:text-orange-400">Open Roles</Link>
             <Link to="/contact" onClick={() => setOpen(false)} className="mt-1 inline-flex justify-center text-sm font-semibold text-white px-4 py-2 rounded-full bg-orange-600 hover:bg-orange-700 transition-colors">Contact Us</Link>
           </div>
         </div>

@@ -1,0 +1,25 @@
+ <div className="mt-12 grid lg:grid-cols-[270px_1fr] gap-8 items-center rounded-[2rem] p-6 md:p-8 bg-slate-200 border border-slate-200 shadow-xl shadow-slate-900/5">
+          <div className="rounded-[1.5rem] overflow-hidden bg-slate-900 shadow-lg">
+            <img
+              src={ceo}
+              alt="CEO Zamir A. Abbasi"
+              className="w-full h-[340px] object-cover object-center"
+            />
+          </div>
+
+          <div>
+            <span className="inline-flex px-4 py-1.5 rounded-full bg-orange-600/10 text-orange-600 font-semibold text-xs tracking-[0.2em] uppercase">
+              Leadership
+            </span>
+
+            <h3 className="mt-4 text-2xl md:text-3xl font-semibold text-slate-950">
+              Zamir A. Abbasi — CEO & Founder
+            </h3>
+
+            <div className="mt-4 h-1 w-20 bg-orange-600 rounded-full"></div>
+
+            <p className="text-slate-700 mt-4 leading-7 max-w-3xl">
+              Over the past 25 years, leading the HR and L&D functions of the Global Hospitality / Corporate Organizations. Being a Certified Trainer and Leadership Coach, his experience is a blend of expertise and innovation. Beside being Certified Trainer from AHLEI USA and Leadership Coach from Carlson Rezidor Business School, he got a hallmark of being awarded as Advance Leader Bronze & Advanced Communicator Bronze from Toastmasters Leadership Institute. He has navigated the complex landscapes of HR and L&D, leading the way for five iconic global hospitality brands in the Middle East (KSA, Bahrain, Qatar & UAE). His mission is simple: to hire, engage and develop world-class leaders and high-performing teams. Whether as a HR Professional, Soft Skills Trainer, Leadership Coach or OD Specialist, he brings deep regional insights and a passion for growth to every project.
+            </p>
+          </div>
+        </div>
