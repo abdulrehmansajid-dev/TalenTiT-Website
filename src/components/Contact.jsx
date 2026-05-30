@@ -22,7 +22,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-slate-50">
+    <section id="contact" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-4xl">
           <p className="uppercase tracking-[0.25em] text-orange-600 font-semibold text-sm mb-4">

@@ -57,7 +57,7 @@ const roles = [
 
 export default function Roles() {
   return (
-    <section id="roles" className="relative overflow-hidden bg-slate-50 py-24">
+    <section id="roles" className="relative overflow-hidden bg-white py-24">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.12),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.08),transparent_35%)]" />
 
       <div className="relative max-w-7xl mx-auto px-6">

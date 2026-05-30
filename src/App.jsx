@@ -8,8 +8,6 @@ import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Training from './components/Training'
-import SoftSkills from './components/SoftSkills'
-import Leadership from './components/Leadership'
 import Hiring from './components/Hiring'
 import Services from './components/Services'
 
@@ -19,8 +17,6 @@ function Home() {
       <Hero />
       <About />
       <Training />
-      <SoftSkills />
-      <Leadership />
       <Hiring />
       <Services />
       <Roles />
@@ -66,8 +62,7 @@ export default function App() {
         <Route path="/contact" element={<ScrollToSection />} />
 
         {/* Training subpage routes should scroll to the corresponding section (hybrid behavior) */}
-        <Route path="/training/soft-skills" element={<ScrollToSection />} />
-        <Route path="/training/leadership" element={<ScrollToSection />} />
+        {/* legacy sub-routes removed — training content consolidated on /training */}
       </Routes>
       <Footer />
     </div>
