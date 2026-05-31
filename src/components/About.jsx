@@ -2,6 +2,7 @@ import React from 'react'
 import ceo from '../assets/ceo.jpeg'
 import SectionHeader from './SectionHeader'
 import ceo2 from '../assets/ceo2.jpg'
+import coo from '../assets/coo.jpeg'
 
 export default function About() {
   const mainServices = [
@@ -247,6 +248,9 @@ export default function About() {
 
     </div>
 
+
+    
+
   </div>
   
 
@@ -421,6 +425,126 @@ export default function About() {
 
 </div>
 
+
+    {/* COO PROFILE */}
+
+    <div className="mt-12 rounded-[1.25rem] bg-white border border-slate-200 shadow-lg p-6 md:p-8">
+
+      <div className="grid lg:grid-cols-[320px_1fr] gap-8 items-start">
+
+        {/* LEFT: Photo + Quick Facts + LinkedIn */}
+        <div className="space-y-4">
+
+          <div className="rounded-[1.25rem] overflow-hidden bg-slate-900 shadow">
+            <img
+              src={coo}
+              alt="Zeeshan Abbasi"
+              className="w-full h-[360px] object-cover object-top"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div className="px-3 py-2 rounded-lg bg-slate-50 border border-slate-100 text-center">
+              <div className="text-sm font-semibold text-slate-900">23+ Years</div>
+              <div className="text-xs text-slate-500">Experience</div>
+            </div>
+
+            <div className="px-3 py-2 rounded-lg bg-slate-50 border border-slate-100 text-center">
+              <div className="text-sm font-semibold text-slate-900">MBA</div>
+              <div className="text-xs text-slate-500">International Management</div>
+            </div>
+
+            <div className="px-3 py-2 rounded-lg bg-slate-50 border border-slate-100 text-center">
+              <div className="text-sm font-semibold text-slate-900">MS</div>
+              <div className="text-xs text-slate-500">Human Resources</div>
+            </div>
+
+            <div className="px-3 py-2 rounded-lg bg-slate-50 border border-slate-100 text-center">
+              <div className="text-sm font-semibold text-slate-900">Certified</div>
+              <div className="text-xs text-slate-500">NLP Trainer</div>
+            </div>
+
+            <div className="px-3 py-2 rounded-lg bg-slate-50 border border-slate-100 text-center">
+              <div className="text-sm font-semibold text-slate-900">UAE</div>
+              <div className="text-xs text-slate-500">Based</div>
+            </div>
+
+            <div className="px-3 py-2 rounded-lg bg-slate-50 border border-slate-100 text-center">
+              <div className="text-sm font-semibold text-slate-900">Neuro Sales</div>
+              <div className="text-xs text-slate-500">Frameworks</div>
+            </div>
+          </div>
+
+          <a
+            href="https://www.linkedin.com/in/zeeshan-abbasi-ba959921?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex items-center justify-center w-full bg-orange-600 text-white rounded-full px-5 py-2 font-medium hover:bg-orange-700"
+          >
+            View LinkedIn Profile ↗
+          </a>
+
+        </div>
+
+        {/* RIGHT: Name, Role, Skills, Short Overview */}
+        <div>
+
+          <p className="uppercase tracking-[0.25em] text-orange-600 font-semibold text-sm mb-4">
+            Leadership Profile
+          </p>
+
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-950">
+            Zeeshan Abbasi
+          </h2>
+
+          <div className="mt-3 h-1 w-16 bg-orange-600 rounded-full"></div>
+
+          <p className="mt-3 text-sm uppercase tracking-[0.2em] text-slate-500">
+            Chief Operating Officer
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <span className="px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium">
+              NLP & Behavioural Change
+            </span>
+
+            <span className="px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">
+              Sales Mastery
+            </span>
+
+            <span className="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium">
+              Leadership Coaching
+            </span>
+
+            <span className="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium">
+              Organisational Development
+            </span>
+
+            <span className="px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium">
+              Performance Management
+            </span>
+
+          </div>
+
+          <div className="mt-6">
+
+            <h4 className="text-sm font-semibold text-slate-900 mb-2">Overview</h4>
+
+            <p className="text-slate-700 leading-7 text-[16px]">
+              Zeeshan brings 23+ years of expertise at the intersection of people science and business outcomes, leading Talentit's talent strategy and operational excellence.
+            </p>
+
+            <p className="text-slate-700 leading-7 text-[16px] mt-4">
+              A certified NLP Trainer with an MBA (International Management) and an MS in Human Resources, he designs proprietary frameworks such as Neuro Sales Mastery and Meta Behavioural Programming that deliver measurable performance improvements.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
 
         <div className="mt-8 grid md:grid-cols-3 gap-6">
           {strengths.map((item) => (
