@@ -31,7 +31,7 @@ export default function Contact() {
 
           <SectionHeader
             title="Contact Us"
-            description="Reach out for training, recruitment, HR outsourcing, or tailored hospitality support. We usually reply quickly and can guide you to the right service."
+            description="Reach out for training, recruitment, HR outsourcing, or tailored hospitality support. You can expect our reply within 24 to 48 hours."
             className="max-w-3xl"
           />
         </div>

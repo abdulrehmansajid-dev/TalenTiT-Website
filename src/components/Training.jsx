@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 const leadershipCourses = [
   {
@@ -186,18 +186,7 @@ const leadershipCourses = [
       'Coaching conversations',
       'Counselling techniques',
     ],
-  },
-  {
-    title: 'Upselling Skills for Front Office & F&B Teams',
-    description:
-      'Increase revenue while enhancing the customer experience through targeted upselling and value-driven communication.',
-    outcomes: [
-      'Identifying upselling opportunities',
-      'Suggestive selling techniques',
-      'Customer engagement',
-      'Value-based selling',
-    ],
-  },
+  }
 ]
 
 const employeeCourses = [
@@ -385,6 +374,17 @@ const CourseCard = ({ course }) => (
 
 export default function Training() {
   const [activeTab, setActiveTab] = useState('leadership')
+  const location = useLocation()
+
+  useEffect(() => {
+    // read hash like #leadership or #employees
+    const hash = (location.hash || '').replace('#', '')
+    if (hash === 'employees' || hash === 'employee' || hash === 'employees') {
+      setActiveTab('employees')
+    } else if (hash === 'leadership') {
+      setActiveTab('leadership')
+    }
+  }, [location.hash])
 
   const currentCourses = activeTab === 'leadership' ? leadershipCourses : employeeCourses
 
