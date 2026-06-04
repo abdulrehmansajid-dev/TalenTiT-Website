@@ -128,12 +128,10 @@ export default function Roles() {
             </a>
 
             <a
-              href="https://wa.me/971552244365"
-              target="_blank"
-              rel="noreferrer"
+              href="mailto:info@talentithospitality.com?subject=Open%20Roles%20Enquiry"
               className="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-3.5 text-sm font-semibold text-slate-700 transition hover:border-amber-500 hover:text-amber-600"
             >
-              WhatsApp Enquiry
+              Email Enquiry
             </a>
           </div>
         </div>

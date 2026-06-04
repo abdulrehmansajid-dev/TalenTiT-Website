@@ -132,7 +132,7 @@ export default function Contact() {
                 <input
                   name="user_name"
                   required
-                  className="w-full p-4 border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 transition-all duration-200"
+                  className="w-full p-4 border border-slate-300 rounded-xl bg-white focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 active:border-orange-500 transition-colors duration-150"
                   placeholder="Your name"
                 />
               </div>
@@ -146,7 +146,7 @@ export default function Contact() {
                   name="user_email"
                   type="email"
                   required
-                  className="w-full p-4 border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 transition-all duration-200"
+                  className="w-full p-4 border border-slate-300 rounded-xl bg-white focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 active:border-orange-500 transition-colors duration-150"
                   placeholder="you@example.com"
                 />
               </div>
@@ -159,7 +159,7 @@ export default function Contact() {
                 <textarea
                   name="message"
                   required
-                  className="w-full p-4 border border-slate-300 rounded-xl bg-white h-44 focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 transition-all duration-200"
+                  className="w-full p-4 border border-slate-300 rounded-xl bg-white h-44 focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 active:border-orange-500 transition-colors duration-150"
                   placeholder="How can we help?"
                 ></textarea>
               </div>
