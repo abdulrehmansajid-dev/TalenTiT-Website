@@ -43,6 +43,27 @@ const normalizeAlbumTitle = (filename) => {
   return name
 }
 
+
+
+const normalizeForMatch = (value) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+const displayTitleOverrides = {
+  'Dynamic Leadership Program': 'Dynamic Leadership Training',
+}
+
+const getDisplayTitle = (album) => displayTitleOverrides[album.title] || album.title
+
+const findAlbumByTitle = (albums, title) => {
+  const target = normalizeForMatch(title)
+  return albums.find((album) => normalizeForMatch(album.title) === target)
+}
+
 // ============================================================================
 // Load and Group Images
 // ============================================================================
@@ -54,9 +75,9 @@ const useGalleryAlbums = () => {
       try {
         // Use Vite's import.meta.glob to dynamically load all images
         const imageModules = import.meta.glob(
-  '../assets/Gallery/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
-  { eager: true }
-)
+          '../assets/Gallery/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
+          { eager: true }
+        )
 
         // Group images by normalized album title
         const albumMap = {}
@@ -133,7 +154,7 @@ const PreviewAlbumCard = ({ album }) => {
       <div className="relative h-56 sm:h-64 overflow-hidden bg-slate-100">
         <img
           src={coverImage.url}
-          alt={album.title}
+          alt={getDisplayTitle(album)}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -148,7 +169,7 @@ const PreviewAlbumCard = ({ album }) => {
 
         {/* Title */}
         <h3 className="text-base sm:text-lg font-bold text-slate-950 mb-2 line-clamp-2">
-          {album.title}
+          {getDisplayTitle(album)}
         </h3>
 
         {/* Photo Count */}
@@ -171,31 +192,37 @@ const PreviewAlbumCard = ({ album }) => {
 export default function GalleryPreview() {
   const albums = useGalleryAlbums()
 
-  // Preferred album names
+  // Preferred album names for the homepage preview.
+  // Leadership Summit Georgia is intentionally excluded from homepage preview.
   const preferredNames = [
-    'Train the Trainer',
+    'Train The Trainer',
     'Hospitality Attitude Training',
-    'Leadership Summit Georgia',
+    'Dynamic Leadership Program',
     'Team Building Activities',
     'Complaints Handling & Service Recovery',
-    'Customer Service Training',
+    'Customer Service Training Le Pre Abu Dhabi',
   ]
+
+  const excludedPreviewTitles = ['Leadership Summit Georgia']
 
   // Get best 6 albums (preferred first, then fill with remaining)
   const previewAlbums = useMemo(() => {
+    const excluded = new Set(excludedPreviewTitles.map(normalizeForMatch))
     const preferred = preferredNames
-      .map((name) => albums.find((a) => a.title === name))
+      .map((name) => findAlbumByTitle(albums, name))
       .filter(Boolean)
-
-    // If we have less than 6 preferred, add more from the rest
-    if (preferred.length < 6) {
-      const remaining = albums.filter(
-        (album) => !preferred.some((p) => p.title === album.title)
+      .filter((album, index, list) =>
+        list.findIndex((item) => item.title === album.title) === index
       )
-      return [...preferred, ...remaining].slice(0, 6)
-    }
+      .filter((album) => !excluded.has(normalizeForMatch(album.title)))
 
-    return preferred.slice(0, 6)
+    const remaining = albums.filter(
+      (album) =>
+        !excluded.has(normalizeForMatch(album.title)) &&
+        !preferred.some((p) => p.title === album.title)
+    )
+
+    return [...preferred, ...remaining].slice(0, 6)
   }, [albums])
 
   if (previewAlbums.length === 0) {

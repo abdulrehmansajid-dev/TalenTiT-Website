@@ -43,6 +43,25 @@ const normalizeAlbumTitle = (filename) => {
   return name
 }
 
+
+
+const normalizeForMatch = (value) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+const shouldSkipGalleryImage = (albumTitle, filename) => {
+  // The two "Show Stress - Who is the Boss" files are duplicates.
+  // Keep the clean filename and skip the numbered duplicate.
+  return (
+    normalizeForMatch(albumTitle) === normalizeForMatch('Show Stress Who is the Boss') &&
+    /\(2\)/.test(filename)
+  )
+}
+
 // ============================================================================
 // Load and Group Images
 // ============================================================================
@@ -63,6 +82,11 @@ const useGalleryAlbums = () => {
         Object.entries(imageModules).forEach(([filepath, module]) => {
           const filename = filepath.split('/').pop()
           const albumTitle = normalizeAlbumTitle(filename)
+
+          if (shouldSkipGalleryImage(albumTitle, filename)) {
+            return
+          }
+
           const imageUrl = module.default
 
           if (!albumMap[albumTitle]) {
