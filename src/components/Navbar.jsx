@@ -167,6 +167,7 @@ export default function Navbar() {
           </div>
 
           <NavItem to="/hiring">Hiring & Selection</NavItem>
+          <NavItem to="/gallery">Gallery</NavItem>
           <NavItem to="/contact">Contact Us</NavItem>
         </nav>
 
@@ -238,6 +239,10 @@ export default function Navbar() {
 
             <Link to="/hiring" onClick={closeMobileMenu} className="py-2.5 text-white/90 hover:text-orange-400">
               Hiring & Selection
+            </Link>
+
+            <Link to="/gallery" onClick={closeMobileMenu} className="py-2.5 text-white/90 hover:text-orange-400">
+              Gallery
             </Link>
 
             <Link

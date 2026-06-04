@@ -10,6 +10,8 @@ import Footer from './components/Footer'
 import Training from './components/Training'
 import Hiring from './components/Hiring'
 import Services from './components/Services'
+import Gallery from './components/Gallery'
+import GalleryPreview from './components/GalleryPreview'
 
 function Home() {
   return (
@@ -19,6 +21,7 @@ function Home() {
       <Training />
       <Hiring />
       <Services />
+      <GalleryPreview />
       <Roles />
       <Testimonials />
       <Contact />
@@ -60,6 +63,9 @@ export default function App() {
         <Route path="/roles" element={<ScrollToSection />} />
         <Route path="/testimonials" element={<ScrollToSection />} />
         <Route path="/contact" element={<ScrollToSection />} />
+        
+        {/* Gallery page */}
+        <Route path="/gallery" element={<Gallery />} />
 
         {/* Training subpage routes should scroll to the corresponding section (hybrid behavior) */}
         {/* legacy sub-routes removed — training content consolidated on /training */}

@@ -262,13 +262,30 @@ export default function About() {
               </div>
 
               <div className="grid grid-cols-2 gap-3">
-                <QuickFact icon="🏆" title="23+ Years" text="Experience" />
-                <QuickFact icon="🎓" title="MBA" text="International Management" />
-                <QuickFact icon="📚" title="MS" text="Human Resources" />
-                <QuickFact icon="✅" title="Certified" text="NLP Trainer" />
-                <QuickFact icon="🎯" title="Leadership" text="Personality Development and Executive Coaching" />
-                <QuickFact icon="🧠" title="Neuro Sales" text="Frameworks" />
-              </div>
+  <QuickFact icon="🏆" title="23+ Years" text="Experience" />
+
+  <QuickFact icon="🎓" title="MBA (UK)" text="International Management" />
+
+  <QuickFact icon="📚" title="MS" text="Management Sciences" />
+
+  <QuickFact
+    icon="✅"
+    title="Certified Trainer"
+    text="NLP · Hypnosis · Life Coaching"
+  />
+
+  <QuickFact
+    icon="🧠"
+    title="Neuro Sales"
+    text="Mastery"
+  />
+
+  <QuickFact
+    icon="✨"
+    title="Charisma"
+    text="Persuasion & Influence"
+  />
+</div>
 
               <a
                 href="https://www.linkedin.com/in/zeeshan-abbasi-ba959921?utm_source=share_via&utm_content=profile&utm_medium=member_android"
