@@ -1,24 +1,56 @@
 import React, { useRef, useState } from 'react'
-import emailjs from '@emailjs/browser'
 import SectionHeader from './SectionHeader'
 
 export default function Contact() {
   const form = useRef()
   const [status, setStatus] = useState(null)
+  const [feedback, setFeedback] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault()
 
-    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'your_service_id'
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'your_template_id'
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'your_public_key'
+    const formData = new FormData(form.current)
+    const payload = Object.fromEntries(formData.entries())
 
-    emailjs.sendForm(serviceId, templateId, form.current, publicKey)
-      .then(() => {
-        setStatus('SENT')
-        form.current.reset()
+    setLoading(true)
+    setStatus(null)
+    setFeedback('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: payload.name,
+          email: payload.email,
+          message: payload.message,
+          phone: payload.phone,
+          company: payload.company,
+          service: payload.service,
+          subject: payload.subject,
+          website: payload.website,
+          companyWebsite: payload.companyWebsite
+        })
       })
-      .catch(() => setStatus('ERROR'))
+
+      const result = await response.json().catch(() => ({}))
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Error sending message')
+      }
+
+      setStatus('SENT')
+      setFeedback(result.message || 'Message sent. Thank you!')
+      form.current.reset()
+    } catch (error) {
+      setStatus('ERROR')
+      setFeedback(error?.message || 'Error sending message')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -68,7 +100,9 @@ export default function Contact() {
                 <div>
                   <strong>Email:</strong>
                   <br />
-                  info@talentitconsultants.com
+                  <a href="mailto:abdulrehmansajid93@gmail.com" className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors">
+                    abdulrehmansajid93@gmail.com
+                  </a>
                 </div>
               </div>
 
@@ -124,13 +158,22 @@ export default function Contact() {
             </div>
 
             <form ref={form} onSubmit={sendEmail} className="grid gap-5">
+              <input
+                type="text"
+                name="website"
+                tabIndex="-1"
+                autoComplete="off"
+                aria-hidden="true"
+                className="hidden"
+              />
+
               <div>
                 <label className="text-sm font-medium text-slate-700 flex items-center gap-2 mb-2">
                   Full name
                 </label>
 
                 <input
-                  name="user_name"
+                  name="name"
                   required
                   className="w-full p-4 border border-slate-300 rounded-xl bg-white focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 active:border-orange-500 transition-colors duration-150"
                   placeholder="Your name"
@@ -143,7 +186,7 @@ export default function Contact() {
                 </label>
 
                 <input
-                  name="user_email"
+                  name="email"
                   type="email"
                   required
                   className="w-full p-4 border border-slate-300 rounded-xl bg-white focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 active:border-orange-500 transition-colors duration-150"
@@ -167,20 +210,21 @@ export default function Contact() {
               <div className="flex items-center gap-4 flex-wrap pt-2">
                 <button
                   type="submit"
-                  className="px-8 py-3 bg-orange-600 text-white font-semibold rounded-full shadow-lg shadow-orange-500/20 hover:bg-orange-700 hover:-translate-y-0.5 transition-all duration-200"
+                  disabled={loading}
+                  className="px-8 py-3 bg-orange-600 text-white font-semibold rounded-full shadow-lg shadow-orange-500/20 hover:bg-orange-700 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 >
-                  Send Message
+                  {loading ? 'Sending...' : 'Send Message'}
                 </button>
 
                 {status === 'SENT' && (
                   <span className="text-green-700 font-medium">
-                    Message sent. Thank you!
+                    {feedback}
                   </span>
                 )}
 
                 {status === 'ERROR' && (
                   <span className="text-red-700 font-medium">
-                    Error sending message.
+                    {feedback}
                   </span>
                 )}
               </div>

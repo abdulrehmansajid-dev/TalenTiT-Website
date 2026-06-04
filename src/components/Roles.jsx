@@ -121,14 +121,14 @@ export default function Roles() {
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="mailto:info@talentithospitality.com"
+              href="mailto:abdulrehmansajid93@gmail.com"
               className="inline-flex items-center justify-center rounded-full bg-slate-950 px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-amber-600"
             >
               Submit Your CV
             </a>
 
             <a
-              href="mailto:info@talentithospitality.com?subject=Open%20Roles%20Enquiry"
+              href="mailto:abdulrehmansajid93@gmail.com?subject=Open%20Roles%20Enquiry"
               className="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-3.5 text-sm font-semibold text-slate-700 transition hover:border-amber-500 hover:text-amber-600"
             >
               Email Enquiry

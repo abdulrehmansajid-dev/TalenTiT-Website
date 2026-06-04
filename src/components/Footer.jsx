@@ -20,7 +20,12 @@ Transforming Future Hoteliers”</p>
         <div className="text-sm text-white/85 leading-7">
           <div className="font-semibold text-white mb-2">Contact</div>
           <div>Phone: +971-552244365</div>
-          <div>Email: info@talentithospitality.com</div>
+          <div>
+            Email:{' '}
+            <a href="mailto:abdulrehmansajid93@gmail.com" className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors">
+              abdulrehmansajid93@gmail.com
+            </a>
+          </div>
           <div>Website: www.talentithospitality.com</div>
         </div>
 
