@@ -54,7 +54,10 @@ const useGalleryAlbums = () => {
     const loadImages = async () => {
       try {
         // Use Vite's import.meta.glob to dynamically load all images
-        const imageModules = import.meta.glob('../assets/Gallery/*.{jpg,jpeg,png,webp}', { eager: true })
+        const imageModules = import.meta.glob(
+  '../assets/Gallery/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
+  { eager: true }
+)
 
         // Group images by normalized album title
         const albumMap = {}
