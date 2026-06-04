@@ -23,10 +23,16 @@ const orderedPaths = [
   '../assets/Hotels&Resorts/Donatello Hotel Dubai.png',
   '../assets/Hotels&Resorts/Radisson Hotel Group.jpeg',
   '../assets/Hotels&Resorts/Elite Hospitality Group.png',
+
+  '../assets/Hotels&Resorts/ASK Development.png',
+  '../assets/Hotels&Resorts/COTHM International.png',
+  '../assets/Hotels&Resorts/UNDP.png',
+
+
   '../assets/Restaurants, Clubs & Real Estate/Capital Club.jpeg',
   '../assets/Restaurants, Clubs & Real Estate/Apres Restaurant.jpeg',
   '../assets/Restaurants, Clubs & Real Estate/Em Sherif Restaurant.png',
-  '../assets/Restaurants, Clubs & Real Estate/Open Home Properties.png'
+  '../assets/Restaurants, Clubs & Real Estate/Open Home Properties.png',
 ]
 
 const logos = orderedPaths.map((p) => logosMap[p]).filter(Boolean)

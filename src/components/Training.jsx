@@ -575,6 +575,110 @@ const customizationItems = [
   'Business Objectives',
 ]
 
+
+const hospitalityTrainingPoints = [
+  {
+    title: 'Bespoke Curriculum',
+    text: "Fully customizable programs based on your hotel’s operational needs, brand standards and service culture.",
+  },
+  {
+    title: 'On-Site Excellence',
+    text: 'Industry-specific training delivered directly at your property for convenience, participation and practical impact.',
+  },
+  {
+    title: 'Comprehensive Growth',
+    text: 'Programs available as exclusive in-house workshops and open-enrollment sessions for different team levels.',
+  },
+  {
+    title: 'Elevate Your Standards',
+    text: 'From frontline service to leadership, we help improve guest experience, communication and team confidence.',
+  },
+  {
+    title: 'Our Philosophy',
+    text: 'Excellence is not an act, but a habit. We help your team build that habit every day.',
+  },
+]
+
+
+const HospitalityTrainingSpotlight = () => (
+  <div className="mb-16 overflow-hidden rounded-[2.25rem] border border-slate-200 bg-white shadow-xl shadow-slate-900/5">
+    <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="relative overflow-hidden bg-slate-950 p-8 md:p-10 text-white">
+        <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-orange-500/20 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-white/5 blur-3xl" />
+
+        <div className="relative">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-orange-400">
+            Hospitality Training
+          </p>
+
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold leading-tight">
+            World-Class Training Tailored For Hospitality Organizations
+          </h2>
+
+          <p className="mt-5 text-slate-300 leading-8">
+            Our training experts bring experience from leading hotel chains and deliver practical programs designed to raise service standards, guest satisfaction and team performance.
+          </p>
+
+          <div className="mt-8 grid grid-cols-2 gap-4">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p className="text-3xl font-semibold text-white">In-House</p>
+              <p className="mt-1 text-xs uppercase tracking-widest text-slate-400">
+                Workshops
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p className="text-3xl font-semibold text-white">TNA</p>
+              <p className="mt-1 text-xs uppercase tracking-widest text-slate-400">
+                Based Design
+              </p>
+            </div>
+          </div>
+
+          <Link
+            to="/contact"
+            className="mt-8 inline-flex rounded-full bg-orange-600 px-7 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-700 hover:shadow-lg hover:shadow-orange-500/20"
+          >
+            Discuss Training Needs
+          </Link>
+        </div>
+      </div>
+
+      <div className="p-8 md:p-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-orange-600">
+          What Makes It Different
+        </p>
+
+        <div className="mt-7 grid gap-4">
+          {hospitalityTrainingPoints.map((item) => (
+            <div
+              key={item.title}
+              className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:bg-white hover:shadow-xl hover:shadow-orange-500/10"
+            >
+              <div className="flex gap-4">
+                <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-700">
+                  ✓
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-slate-950">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    {item.text}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+)
+
 const CourseCard = ({ course }) => (
   <article className="group relative h-full rounded-3xl bg-white border border-slate-200 p-7 shadow-md shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-xl hover:shadow-orange-500/10">
     <div className="flex items-start justify-between gap-4">
@@ -737,6 +841,8 @@ export default function Training() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-20">
+        <HospitalityTrainingSpotlight />
+
         <div className="mb-16">
           <div className="max-w-3xl">
             <p className="uppercase tracking-[0.22em] text-orange-600 font-semibold text-xs">

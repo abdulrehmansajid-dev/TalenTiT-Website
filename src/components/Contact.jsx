@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import SectionHeader from './SectionHeader'
 
-const contactEmail = 'abdulrehmansajid93@gmail.com'
+const contactEmail = 'info@talentithospitality.com'
 const phoneDisplay = '+971-552244365'
 const phoneHref = '+971552244365'
 const websiteUrl = 'https://www.talentithospitality.com'

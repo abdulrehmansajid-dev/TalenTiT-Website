@@ -150,7 +150,7 @@ export default function Navbar() {
                   : 'text-white/90 hover:bg-white/10 hover:text-orange-400'
               }`}
             >
-              Training
+              Training Catalogue
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className={`h-4 w-4 transition-transform duration-200 ${trainingOpen ? 'rotate-180' : ''}`}

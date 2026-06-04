@@ -172,7 +172,7 @@ export default function About() {
                 <SectionDivider title="Executive Summary" />
 
                 <p className="text-slate-700 leading-8 text-[17px]">
-                  With more than 20 years of progressive experience leading Human Resources and Learning & Development functions across global hospitality brands and corporate organizations, he brings a unique combination of strategic leadership, operational excellence, and people development expertise.
+                  With more than 25 years of progressive experience leading Human Resources and Learning & Development functions across global hospitality brands and corporate organizations, he brings a unique combination of strategic leadership, operational excellence, and people development expertise.
                 </p>
 
                 <p className="text-slate-700 leading-8 text-[17px] mt-4">
@@ -271,7 +271,7 @@ export default function About() {
   <QuickFact
     icon="✅"
     title="Certified Trainer"
-    text="NLP · Hypnosis · Life Coaching"
+    text="NLP · Hypnosis · Life Coaching (USA)"
   />
 
   <QuickFact

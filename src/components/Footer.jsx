@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../assets/logo.jpeg'
 
-const contactEmail = 'abdulrehmansajid93@gmail.com'
+const contactEmail = 'info@talentithospitality.com'
 const phoneDisplay = '+971-552244365'
 const phoneHref = '+971552244365'
 const websiteUrl = 'https://www.talentithospitality.com'
