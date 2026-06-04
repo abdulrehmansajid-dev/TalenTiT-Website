@@ -12,6 +12,7 @@ import Hiring from './components/Hiring'
 import Services from './components/Services'
 import Gallery from './components/Gallery'
 import GalleryPreview from './components/GalleryPreview'
+import SupportTeam from './components/SupportTeam'
 
 function Home() {
   return (
@@ -24,6 +25,7 @@ function Home() {
       <GalleryPreview />
       <Roles />
       <Testimonials />
+      <SupportTeam />
       <Contact />
     </div>
   )
