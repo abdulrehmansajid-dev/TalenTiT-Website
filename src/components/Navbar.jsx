@@ -30,6 +30,17 @@ const trainingLinks = [
   },
 ]
 
+const getPathAndHash = (to) => {
+  const [path = '/', hash = ''] = to.split('#')
+  return { path, hash }
+}
+
+const getSectionId = (path, hash) => {
+  if (hash) return hash
+  if (path === '/') return 'home'
+  return path.split('/').filter(Boolean).pop() || 'home'
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [trainingOpen, setTrainingOpen] = useState(false)
@@ -54,15 +65,47 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const closeMobileMenu = () => {
+  const closeMenus = () => {
     setOpen(false)
     setTrainingOpen(false)
   }
 
-  const NavItem = ({ to, children, onClick }) => (
+  const scrollIfAlreadyOnTarget = (to) => {
+    const { path, hash } = getPathAndHash(to)
+    const isSamePath = location.pathname === path
+
+    if (!isSamePath) return
+
+    const targetId = getSectionId(path, hash)
+
+    window.setTimeout(() => {
+      if (path === '/' && !hash) {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        return
+      }
+
+      const element = document.getElementById(targetId)
+      const fallback = path === '/training' ? document.getElementById('programme-categories') : null
+
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else if (fallback) {
+        fallback.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+    }, 120)
+  }
+
+  const handleNavClick = (to) => {
+    closeMenus()
+    scrollIfAlreadyOnTarget(to)
+  }
+
+  const NavItem = ({ to, children }) => (
     <NavLink
       to={to}
-      onClick={onClick}
+      onClick={() => handleNavClick(to)}
       className={({ isActive }) =>
         `text-sm font-semibold px-4 py-2.5 rounded-full transition-all duration-200 ${
           isActive
@@ -78,7 +121,12 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-slate-950/95 text-white border-b border-white/10 shadow-lg shadow-slate-950/20 backdrop-blur-xl">
       <div className="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between gap-4">
-        <Link to="/" className="inline-flex items-center shrink-0">
+        <Link
+          to="/"
+          onClick={() => handleNavClick('/')}
+          className="inline-flex items-center shrink-0"
+          aria-label="Go to homepage"
+        >
           <img
             src={navLogo}
             alt="TalenTiT logo"
@@ -131,7 +179,7 @@ export default function Navbar() {
                       <NavLink
                         key={item.to}
                         to={item.to}
-                        onClick={() => setTrainingOpen(false)}
+                        onClick={() => handleNavClick(item.to)}
                         className="group block rounded-xl px-3.5 py-2.5 transition-all duration-200 hover:bg-orange-50"
                       >
                         <div className="flex items-center justify-between gap-3">
@@ -155,7 +203,7 @@ export default function Navbar() {
                   <div className="border-t border-slate-100 px-4 py-3 bg-slate-50">
                     <Link
                       to="/training"
-                      onClick={() => setTrainingOpen(false)}
+                      onClick={() => handleNavClick('/training')}
                       className="inline-flex w-full justify-center rounded-full bg-orange-600 px-4 py-2.5 text-xs font-semibold text-white hover:bg-orange-700 transition-all duration-200"
                     >
                       View Full Catalogue
@@ -195,11 +243,11 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-slate-950 text-white border-t border-white/10 shadow-xl">
           <div className="px-6 py-5 flex flex-col gap-1">
-            <Link to="/" onClick={closeMobileMenu} className="py-2.5 text-white/90 hover:text-orange-400">
+            <Link to="/" onClick={() => handleNavClick('/')} className="py-2.5 text-white/90 hover:text-orange-400">
               Home
             </Link>
 
-            <Link to="/about" onClick={closeMobileMenu} className="py-2.5 text-white/90 hover:text-orange-400">
+            <Link to="/about" onClick={() => handleNavClick('/about')} className="py-2.5 text-white/90 hover:text-orange-400">
               Who We Are
             </Link>
 
@@ -227,7 +275,7 @@ export default function Navbar() {
                     <Link
                       key={item.to}
                       to={item.to}
-                      onClick={closeMobileMenu}
+                      onClick={() => handleNavClick(item.to)}
                       className="block rounded-xl px-3 py-2.5 text-sm text-white/75 hover:bg-white/10 hover:text-orange-400"
                     >
                       {item.label}
@@ -237,17 +285,17 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link to="/hiring" onClick={closeMobileMenu} className="py-2.5 text-white/90 hover:text-orange-400">
+            <Link to="/hiring" onClick={() => handleNavClick('/hiring')} className="py-2.5 text-white/90 hover:text-orange-400">
               Hiring & Selection
             </Link>
 
-            <Link to="/gallery" onClick={closeMobileMenu} className="py-2.5 text-white/90 hover:text-orange-400">
+            <Link to="/gallery" onClick={() => handleNavClick('/gallery')} className="py-2.5 text-white/90 hover:text-orange-400">
               Gallery
             </Link>
 
             <Link
               to="/contact"
-              onClick={closeMobileMenu}
+              onClick={() => handleNavClick('/contact')}
               className="mt-3 inline-flex justify-center rounded-full bg-orange-600 px-5 py-3 text-sm font-semibold text-white hover:bg-orange-700 transition-colors"
             >
               Contact Us

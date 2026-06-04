@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import SectionHeader from './SectionHeader'
 
 // ============================================================================
 // Category Detection Helper
@@ -55,9 +54,9 @@ const useGalleryAlbums = () => {
       try {
         // Use Vite's import.meta.glob to dynamically load all images
         const imageModules = import.meta.glob(
-  '../assets/Gallery/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
-  { eager: true }
-)
+          '../assets/Gallery/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
+          { eager: true }
+        )
 
         // Group images by normalized album title
         const albumMap = {}
@@ -122,24 +121,26 @@ const CategoryBadge = ({ category }) => {
 // ============================================================================
 // Lightbox Modal
 // ============================================================================
-const LightboxModal = ({ album, currentImageIndex, onClose, onNext, onPrev }) => {
+const LightboxModal = ({ album, currentImageIndex, onClose, onNext, onPrev, onSelectImage }) => {
   const currentImage = album.images[currentImageIndex]
 
   useEffect(() => {
-    // Prevent body scroll
+    const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
-    // Close on Escape key
-    const handleEscape = (e) => {
-      if (e.key === 'Escape') onClose()
+    const handleKeyboard = (event) => {
+      if (event.key === 'Escape') onClose()
+      if (event.key === 'ArrowRight' && album.images.length > 1) onNext()
+      if (event.key === 'ArrowLeft' && album.images.length > 1) onPrev()
     }
 
-    document.addEventListener('keydown', handleEscape)
+    document.addEventListener('keydown', handleKeyboard)
+
     return () => {
-      document.body.style.overflow = 'auto'
-      document.removeEventListener('keydown', handleEscape)
+      document.body.style.overflow = previousOverflow
+      document.removeEventListener('keydown', handleKeyboard)
     }
-  }, [onClose])
+  }, [album.images.length, onClose, onNext, onPrev])
 
   return (
     <div
@@ -217,23 +218,19 @@ const LightboxModal = ({ album, currentImageIndex, onClose, onNext, onPrev }) =>
               {album.images.map((img, idx) => (
                 <button
                   key={idx}
-                  onClick={() => {
-                    // Navigation handled by parent component
-                    // This is just for visual selection
-                  }}
+                  type="button"
+                  onClick={() => onSelectImage(idx)}
                   className={`shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
                     idx === currentImageIndex
                       ? 'border-orange-600 shadow-lg shadow-orange-600/30'
                       : 'border-white/10 hover:border-white/30'
                   }`}
+                  aria-label={`View image ${idx + 1} of ${album.images.length}`}
                 >
                   <img
                     src={img.url}
                     alt={`Thumbnail ${idx + 1}`}
                     className="w-full h-full object-cover cursor-pointer"
-                    onClick={() => {
-                      // Parent will need to handle this
-                    }}
                   />
                 </button>
               ))}
@@ -252,7 +249,7 @@ const AlbumCard = ({ album, onViewAlbum }) => {
   const coverImage = album.images[0]
 
   return (
-    <div className="group relative rounded-3xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5">
+    <article className="group relative rounded-3xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5">
       {/* Image Container */}
       <div className="relative h-64 sm:h-72 overflow-hidden bg-slate-100">
         <img
@@ -284,6 +281,7 @@ const AlbumCard = ({ album, onViewAlbum }) => {
 
         {/* View Album Button */}
         <button
+          type="button"
           onClick={() => onViewAlbum(album)}
           className="w-full px-5 py-3 rounded-full bg-orange-600 text-white font-semibold text-sm hover:bg-orange-700 transition-all duration-200 flex items-center justify-center gap-2 group"
         >
@@ -296,7 +294,7 @@ const AlbumCard = ({ album, onViewAlbum }) => {
 
       {/* Orange accent on hover */}
       <div className="absolute inset-0 rounded-3xl border-2 border-orange-600/0 group-hover:border-orange-600/100 transition-colors duration-300 pointer-events-none" />
-    </div>
+    </article>
   )
 }
 
@@ -308,6 +306,10 @@ export default function Gallery() {
   const [selectedAlbum, setSelectedAlbum] = useState(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [selectedCategory, setSelectedCategory] = useState('All')
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
 
   // Featured albums (first 3 or specific names)
   const featuredAlbumTitles = ['Train the Trainer', 'Hospitality Attitude Training', 'Leadership Summit Georgia']
@@ -359,6 +361,10 @@ export default function Gallery() {
     if (selectedAlbum) {
       setCurrentImageIndex((prev) => (prev - 1 + selectedAlbum.images.length) % selectedAlbum.images.length)
     }
+  }
+
+  const handleSelectImage = (index) => {
+    setCurrentImageIndex(index)
   }
 
   return (
@@ -431,6 +437,7 @@ export default function Gallery() {
             {categories.map((category) => (
               <button
                 key={category}
+                type="button"
                 onClick={() => setSelectedCategory(category)}
                 className={`px-5 py-2.5 rounded-full font-medium transition-all duration-200 text-sm sm:text-base ${
                   selectedCategory === category
@@ -497,6 +504,7 @@ export default function Gallery() {
           onClose={handleCloseLightbox}
           onNext={handleNextImage}
           onPrev={handlePrevImage}
+          onSelectImage={handleSelectImage}
         />
       )}
     </div>

@@ -1,6 +1,11 @@
 import React, { useRef, useState } from 'react'
 import SectionHeader from './SectionHeader'
 
+const contactEmail = 'abdulrehmansajid93@gmail.com'
+const phoneDisplay = '+971-552244365'
+const phoneHref = '+971552244365'
+const websiteUrl = 'https://www.talentithospitality.com'
+
 export default function Contact() {
   const form = useRef()
   const [status, setStatus] = useState(null)
@@ -86,7 +91,9 @@ export default function Contact() {
                 <div>
                   <strong>Phone / WhatsApp:</strong>
                   <br />
-                  +971-552244365
+                  <a href={`tel:${phoneHref}`} className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors">
+                    {phoneDisplay}
+                  </a>
                 </div>
               </div>
 
@@ -100,8 +107,8 @@ export default function Contact() {
                 <div>
                   <strong>Email:</strong>
                   <br />
-                  <a href="mailto:abdulrehmansajid93@gmail.com" className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors">
-                    abdulrehmansajid93@gmail.com
+                  <a href={`mailto:${contactEmail}`} className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors">
+                    {contactEmail}
                   </a>
                 </div>
               </div>
@@ -128,7 +135,14 @@ export default function Contact() {
                 <div>
                   <strong>Website:</strong>
                   <br />
-                  www.talentithospitality.com
+                  <a
+                    href={websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors"
+                  >
+                    www.talentithospitality.com
+                  </a>
                 </div>
               </div>
             </div>
