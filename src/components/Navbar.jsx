@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
-import navLogo from '../assets/navLogo.webp'
+import navLogo from '../assets/navLogo.png'
 
 const trainingLinks = [
   {
