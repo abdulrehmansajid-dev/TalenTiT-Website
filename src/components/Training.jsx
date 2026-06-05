@@ -575,7 +575,6 @@ const customizationItems = [
   'Business Objectives',
 ]
 
-
 const hospitalityTrainingPoints = [
   {
     title: 'Bespoke Curriculum',
@@ -598,7 +597,6 @@ const hospitalityTrainingPoints = [
     text: 'Excellence is not an act, but a habit. We help your team build that habit every day.',
   },
 ]
-
 
 const HospitalityTrainingSpotlight = () => (
   <div className="mb-16 overflow-hidden rounded-[2.25rem] border border-slate-200 bg-white shadow-xl shadow-slate-900/5">
@@ -771,19 +769,47 @@ export default function Training() {
   const location = useLocation()
   const [activeTab, setActiveTab] = useState('leadership')
 
-  useEffect(() => {
-    const hash = (location.hash || '').replace('#', '')
-    const matchedCategory = trainingCategories.find((category) => category.id === hash)
+  const scrollToTrainingCategories = () => {
+    window.setTimeout(() => {
+      const element = document.getElementById('programme-categories')
+
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 250)
+  }
+
+  const selectTrainingCategory = (categoryId) => {
+    const matchedCategory = trainingCategories.find(
+      (category) => category.id === categoryId
+    )
 
     if (matchedCategory) {
       setActiveTab(matchedCategory.id)
+      scrollToTrainingCategories()
+    }
+  }
 
-      setTimeout(() => {
-        const element = document.getElementById('programme-categories')
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      }, 80)
+  useEffect(() => {
+    const hashCategory = (location.hash || '').replace('#', '')
+    const pendingCategory = sessionStorage.getItem('pendingTrainingCategory')
+    const requestedCategory = pendingCategory || hashCategory
+
+    if (requestedCategory) {
+      sessionStorage.removeItem('pendingTrainingCategory')
+      selectTrainingCategory(requestedCategory)
+    }
+
+    const handleTrainingCategoryRequest = (event) => {
+      if (event.detail) {
+        selectTrainingCategory(event.detail)
+      }
+    }
+
+    window.addEventListener('training-category-request', handleTrainingCategoryRequest)
+
+    return () => {
+      window.removeEventListener('training-category-request', handleTrainingCategoryRequest)
     }
   }, [location.hash])
 
@@ -882,7 +908,17 @@ export default function Training() {
               <button
                 key={category.id}
                 type="button"
-                onClick={() => setActiveTab(category.id)}
+                onClick={() => {
+                  setActiveTab(category.id)
+                  window.history.replaceState(null, '', `/training#${category.id}`)
+
+                  window.setTimeout(() => {
+                    const element = document.getElementById('programme-categories')
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                  }, 120)
+                }}
                 className={`px-5 py-4 text-sm font-semibold transition-all border-b-2 ${
                   activeTab === category.id
                     ? 'border-orange-600 text-orange-600'

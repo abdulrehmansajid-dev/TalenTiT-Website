@@ -109,15 +109,25 @@ export default function Navbar() {
   const handleTrainingLinkClick = (event, to) => {
     event.preventDefault()
 
+    const { hash } = getPathAndHash(to)
+    const categoryId = hash
+
     closeMenus()
-    navigate(to)
 
-    // Extra delayed scroll for mobile browsers after menu closes and Training tab updates.
+    if (categoryId) {
+      sessionStorage.setItem('pendingTrainingCategory', categoryId)
+    }
+
+    window.dispatchEvent(
+      new CustomEvent('training-category-request', {
+        detail: categoryId,
+      })
+    )
+
+    navigate(`/training#${categoryId}`)
+
     window.setTimeout(() => {
-      const { hash } = getPathAndHash(to)
-      const targetId = hash || 'programme-categories'
-
-      const categoryElement = document.getElementById(targetId)
+      const categoryElement = document.getElementById(categoryId)
       const fallbackElement = document.getElementById('programme-categories')
 
       if (categoryElement) {
@@ -125,7 +135,7 @@ export default function Navbar() {
       } else if (fallbackElement) {
         fallbackElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
-    }, 260)
+    }, 500)
   }
 
   const NavItem = ({ to, children }) => (
@@ -269,11 +279,19 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-slate-950 text-white border-t border-white/10 shadow-xl">
           <div className="px-6 py-5 flex flex-col gap-1">
-            <Link to="/" onClick={() => handleNavClick('/')} className="py-2.5 text-white/90 hover:text-orange-400">
+            <Link
+              to="/"
+              onClick={() => handleNavClick('/')}
+              className="py-2.5 text-white/90 hover:text-orange-400"
+            >
               Home
             </Link>
 
-            <Link to="/about" onClick={() => handleNavClick('/about')} className="py-2.5 text-white/90 hover:text-orange-400">
+            <Link
+              to="/about"
+              onClick={() => handleNavClick('/about')}
+              className="py-2.5 text-white/90 hover:text-orange-400"
+            >
               Who We Are
             </Link>
 
@@ -319,11 +337,19 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link to="/hiring" onClick={() => handleNavClick('/hiring')} className="py-2.5 text-white/90 hover:text-orange-400">
+            <Link
+              to="/hiring"
+              onClick={() => handleNavClick('/hiring')}
+              className="py-2.5 text-white/90 hover:text-orange-400"
+            >
               Hiring & Selection
             </Link>
 
-            <Link to="/gallery" onClick={() => handleNavClick('/gallery')} className="py-2.5 text-white/90 hover:text-orange-400">
+            <Link
+              to="/gallery"
+              onClick={() => handleNavClick('/gallery')}
+              className="py-2.5 text-white/90 hover:text-orange-400"
+            >
               Gallery
             </Link>
 
