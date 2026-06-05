@@ -57,14 +57,23 @@ function ScrollToSection() {
     const pathId = getSectionIdFromPath(pathname)
 
     const timer = setTimeout(() => {
-      // Training category hash links are handled inside Training.jsx after the tab state updates.
       if (pathname === '/training' && hashId) {
-        scrollToElement('programme-categories')
+        const targetElement = document.getElementById(hashId)
+        const fallbackElement = document.getElementById('programme-categories')
+
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        } else if (fallbackElement) {
+          fallbackElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
+
         return
       }
 
       scrollToElement(hashId || pathId)
-    }, hashId ? 140 : 70)
+    }, hashId ? 260 : 90)
 
     return () => clearTimeout(timer)
   }, [pathname, hash])

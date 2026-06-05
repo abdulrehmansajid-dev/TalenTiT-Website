@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { NavLink, Link, useLocation } from 'react-router-dom'
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
 import navLogo from '../assets/navLogo.png'
 
 const trainingLinks = [
@@ -46,6 +46,7 @@ export default function Navbar() {
   const [trainingOpen, setTrainingOpen] = useState(false)
   const dropdownRef = useRef(null)
   const location = useLocation()
+  const navigate = useNavigate()
 
   const isTrainingActive = location.pathname === '/training'
 
@@ -70,12 +71,8 @@ export default function Navbar() {
     setTrainingOpen(false)
   }
 
-  const scrollIfAlreadyOnTarget = (to) => {
+  const scrollToTarget = (to) => {
     const { path, hash } = getPathAndHash(to)
-    const isSamePath = location.pathname === path
-
-    if (!isSamePath) return
-
     const targetId = getSectionId(path, hash)
 
     window.setTimeout(() => {
@@ -84,22 +81,51 @@ export default function Navbar() {
         return
       }
 
-      const element = document.getElementById(targetId)
-      const fallback = path === '/training' ? document.getElementById('programme-categories') : null
+      const targetElement = document.getElementById(targetId)
+      const trainingFallback = path === '/training'
+        ? document.getElementById('programme-categories')
+        : null
 
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      } else if (fallback) {
-        fallback.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else if (trainingFallback) {
+        trainingFallback.scrollIntoView({ behavior: 'smooth', block: 'start' })
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' })
       }
-    }, 120)
+    }, 180)
   }
 
   const handleNavClick = (to) => {
     closeMenus()
-    scrollIfAlreadyOnTarget(to)
+
+    const { path } = getPathAndHash(to)
+
+    if (location.pathname === path) {
+      scrollToTarget(to)
+    }
+  }
+
+  const handleTrainingLinkClick = (event, to) => {
+    event.preventDefault()
+
+    closeMenus()
+    navigate(to)
+
+    // Extra delayed scroll for mobile browsers after menu closes and Training tab updates.
+    window.setTimeout(() => {
+      const { hash } = getPathAndHash(to)
+      const targetId = hash || 'programme-categories'
+
+      const categoryElement = document.getElementById(targetId)
+      const fallbackElement = document.getElementById('programme-categories')
+
+      if (categoryElement) {
+        categoryElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else if (fallbackElement) {
+        fallbackElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 260)
   }
 
   const NavItem = ({ to, children }) => (
@@ -176,10 +202,10 @@ export default function Navbar() {
 
                   <div className="p-2">
                     {trainingLinks.map((item) => (
-                      <NavLink
+                      <Link
                         key={item.to}
                         to={item.to}
-                        onClick={() => handleNavClick(item.to)}
+                        onClick={(event) => handleTrainingLinkClick(event, item.to)}
                         className="group block rounded-xl px-3.5 py-2.5 transition-all duration-200 hover:bg-orange-50"
                       >
                         <div className="flex items-center justify-between gap-3">
@@ -196,7 +222,7 @@ export default function Navbar() {
                             →
                           </span>
                         </div>
-                      </NavLink>
+                      </Link>
                     ))}
                   </div>
 
@@ -257,7 +283,7 @@ export default function Navbar() {
                 onClick={() => setTrainingOpen((value) => !value)}
                 className="w-full flex items-center justify-between text-left text-white/90 py-2.5 hover:text-orange-400"
               >
-                <span>Training</span>
+                <span>Training Catalogue</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className={`h-4 w-4 transition-transform duration-200 ${trainingOpen ? 'rotate-180' : ''}`}
@@ -275,12 +301,20 @@ export default function Navbar() {
                     <Link
                       key={item.to}
                       to={item.to}
-                      onClick={() => handleNavClick(item.to)}
+                      onClick={(event) => handleTrainingLinkClick(event, item.to)}
                       className="block rounded-xl px-3 py-2.5 text-sm text-white/75 hover:bg-white/10 hover:text-orange-400"
                     >
                       {item.label}
                     </Link>
                   ))}
+
+                  <Link
+                    to="/training"
+                    onClick={() => handleNavClick('/training')}
+                    className="block rounded-xl px-3 py-2.5 text-sm font-semibold text-orange-400 hover:bg-white/10"
+                  >
+                    View Full Catalogue
+                  </Link>
                 </div>
               )}
             </div>
