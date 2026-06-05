@@ -82,9 +82,10 @@ export default function Navbar() {
       }
 
       const targetElement = document.getElementById(targetId)
-      const trainingFallback = path === '/training'
-        ? document.getElementById('programme-categories')
-        : null
+      const trainingFallback =
+        path === '/training'
+          ? document.getElementById('programme-categories')
+          : null
 
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -170,7 +171,10 @@ export default function Navbar() {
           />
         </Link>
 
-        <nav className="hidden md:flex items-center whitespace-nowrap gap-2" aria-label="Primary navigation">
+        <nav
+          className="hidden md:flex items-center whitespace-nowrap gap-2"
+          aria-label="Primary navigation"
+        >
           <NavItem to="/">Home</NavItem>
           <NavItem to="/about">Who We Are</NavItem>
 
@@ -189,12 +193,19 @@ export default function Navbar() {
               Training Catalogue
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className={`h-4 w-4 transition-transform duration-200 ${trainingOpen ? 'rotate-180' : ''}`}
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  trainingOpen ? 'rotate-180' : ''
+                }`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
               </svg>
             </button>
 
@@ -215,7 +226,9 @@ export default function Navbar() {
                       <Link
                         key={item.to}
                         to={item.to}
-                        onClick={(event) => handleTrainingLinkClick(event, item.to)}
+                        onClick={(event) =>
+                          handleTrainingLinkClick(event, item.to)
+                        }
                         className="group block rounded-xl px-3.5 py-2.5 transition-all duration-200 hover:bg-orange-50"
                       >
                         <div className="flex items-center justify-between gap-3">
@@ -265,12 +278,22 @@ export default function Navbar() {
           }}
           className="md:hidden p-2 rounded-xl text-white hover:bg-white/10 hover:text-orange-400 transition-all duration-200"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d={open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+              d={
+                open
+                  ? 'M6 18L18 6M6 6l12 12'
+                  : 'M4 6h16M4 12h16M4 18h16'
+              }
             />
           </svg>
         </button>
@@ -295,47 +318,13 @@ export default function Navbar() {
               Who We Are
             </Link>
 
-            <div className="py-2">
-              <button
-                type="button"
-                onClick={() => setTrainingOpen((value) => !value)}
-                className="w-full flex items-center justify-between text-left text-white/90 py-2.5 hover:text-orange-400"
-              >
-                <span>Training Catalogue</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className={`h-4 w-4 transition-transform duration-200 ${trainingOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {trainingOpen && (
-                <div className="mt-2 space-y-1 rounded-2xl bg-white/5 border border-white/10 p-2">
-                  {trainingLinks.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      onClick={(event) => handleTrainingLinkClick(event, item.to)}
-                      className="block rounded-xl px-3 py-2.5 text-sm text-white/75 hover:bg-white/10 hover:text-orange-400"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-
-                  <Link
-                    to="/training"
-                    onClick={() => handleNavClick('/training')}
-                    className="block rounded-xl px-3 py-2.5 text-sm font-semibold text-orange-400 hover:bg-white/10"
-                  >
-                    View Full Catalogue
-                  </Link>
-                </div>
-              )}
-            </div>
+            <Link
+              to="/training"
+              onClick={() => handleNavClick('/training')}
+              className="py-2.5 text-white/90 hover:text-orange-400"
+            >
+              Training Catalogue
+            </Link>
 
             <Link
               to="/hiring"
