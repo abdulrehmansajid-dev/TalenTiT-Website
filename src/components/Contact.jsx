@@ -4,7 +4,7 @@ import SectionHeader from './SectionHeader'
 const contactEmail = 'info@talentithospitality.com'
 const phoneDisplay = '+971-552244365'
 const phoneHref = '+971552244365'
-const websiteUrl = 'https://www.talentithospitality.com'
+const websiteUrl = 'https://talentithospitality.com'
 
 export default function Contact() {
   const form = useRef()
@@ -141,7 +141,7 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors"
                   >
-                    www.talentithospitality.com
+                    talentithospitality.com
                   </a>
                 </div>
               </div>

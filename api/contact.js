@@ -2,7 +2,6 @@ const fs = require('fs')
 const path = require('path')
 
 let resendClientPromise = null
-
 let localEnvCache = null
 
 function parseEnvFile(filePath) {
@@ -107,25 +106,32 @@ module.exports = async function handler(req, res) {
   const hasReceiverEmail = Boolean(getEnvValue('CONTACT_RECEIVER_EMAIL'))
   const hasFromEmail = Boolean(getEnvValue('CONTACT_FROM_EMAIL'))
 
-  if (!hasResendApiKey || !hasReceiverEmail) {
+  if (!hasResendApiKey || !hasReceiverEmail || !hasFromEmail) {
     const missingVars = [
       !hasResendApiKey ? 'RESEND_API_KEY' : null,
-      !hasReceiverEmail ? 'CONTACT_RECEIVER_EMAIL' : null
+      !hasReceiverEmail ? 'CONTACT_RECEIVER_EMAIL' : null,
+      !hasFromEmail ? 'CONTACT_FROM_EMAIL' : null,
     ].filter(Boolean)
 
     console.error('Missing contact env vars:', missingVars)
 
-    return res.status(500).json({ success: false, message: 'Server email configuration is missing.' })
+    return res.status(500).json({
+      success: false,
+      message: 'Server email configuration is missing.',
+    })
   }
 
   console.log('Contact API env presence:', {
     hasResendApiKey,
     hasReceiverEmail,
-    hasFromEmail
+    hasFromEmail,
   })
 
   if (honeypot) {
-    return res.status(200).json({ success: true, message: 'Your message has been sent successfully.' })
+    return res.status(200).json({
+      success: true,
+      message: 'Your message has been sent successfully.',
+    })
   }
 
   const name = String(body.name || body.user_name || '').trim()
@@ -137,24 +143,33 @@ module.exports = async function handler(req, res) {
   const subject = String(body.subject || '').trim()
 
   if (!name || !email || !message) {
-    return res.status(400).json({ success: false, message: 'Name, email, and message are required.' })
+    return res.status(400).json({
+      success: false,
+      message: 'Name, email, and message are required.',
+    })
   }
 
   if (!isValidEmail(email)) {
-    return res.status(400).json({ success: false, message: 'Please enter a valid email address.' })
+    return res.status(400).json({
+      success: false,
+      message: 'Please enter a valid email address.',
+    })
   }
 
   const to = getEnvValue('CONTACT_RECEIVER_EMAIL')
-  const from = getEnvValue('CONTACT_FROM_EMAIL') || 'TalenTiT Website <onboarding@resend.dev>'
+  const from = getEnvValue('CONTACT_FROM_EMAIL')
   const submittedAt = new Date().toLocaleString('en-GB', {
     dateStyle: 'medium',
-    timeStyle: 'short'
+    timeStyle: 'short',
   })
   const resend = await getResendClient()
 
   if (!resend) {
     console.error('Contact API error: missing Resend client')
-    return res.status(500).json({ success: false, message: 'Server email configuration is missing.' })
+    return res.status(500).json({
+      success: false,
+      message: 'Server email configuration is missing.',
+    })
   }
 
   const emailHtml = `
@@ -180,31 +195,43 @@ module.exports = async function handler(req, res) {
     service ? `Service/Inquiry Type: ${service}` : null,
     subject ? `Subject: ${subject}` : null,
     `Message: ${message}`,
-    `Submitted: ${submittedAt}`
+    `Submitted: ${submittedAt}`,
   ].filter(Boolean)
 
   try {
-    await resend.emails.send({
+    const result = await resend.emails.send({
       from,
       to,
       replyTo: email,
       subject: 'New Website Enquiry - TalenTiT',
       text: textParts.join('\n\n'),
-      html: emailHtml
+      html: emailHtml,
     })
 
-    return res.status(200).json({ success: true, message: 'Your message has been sent successfully.' })
+    if (result?.error) {
+      console.error('Resend send error:', result.error)
+
+      return res.status(500).json({
+        success: false,
+        message: result.error?.message || 'Email service rejected the message.',
+      })
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'Your message has been sent successfully.',
+    })
   } catch (error) {
     console.error('Contact API error:', {
       message: error?.message,
       name: error?.name,
       statusCode: error?.statusCode,
-      response: error?.response
+      response: error?.response,
     })
 
     return res.status(500).json({
       success: false,
-      message: error?.message || 'Something went wrong. Please try again.'
+      message: error?.message || 'Something went wrong. Please try again.',
     })
   }
 }

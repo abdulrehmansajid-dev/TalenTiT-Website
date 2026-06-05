@@ -1,7 +1,7 @@
 import React from 'react'
 import SectionHeader from './SectionHeader'
 
-const contactEmail = 'abdulrehmansajid93@gmail.com'
+const contactEmail = 'info@talentithospitality.com'
 const cvSubject = encodeURIComponent('CV Submission - TalenTiT Open Roles')
 const enquirySubject = encodeURIComponent('Open Roles Enquiry')
 const cvBody = encodeURIComponent('Hello TalenTiT Team,\n\nI would like to submit my CV for your open hospitality roles.\n\nBest regards,')
