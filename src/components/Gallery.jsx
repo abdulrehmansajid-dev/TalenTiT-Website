@@ -167,17 +167,17 @@ const LightboxModal = ({ album, currentImageIndex, onClose, onNext, onPrev, onSe
   }, [album.images.length, onClose, onNext, onPrev])
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <div
-        className="relative flex flex-col w-full h-full md:max-w-4xl md:max-h-[90vh] md:rounded-3xl overflow-hidden bg-slate-950"
-        onClick={(e) => e.stopPropagation()}
-      >
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-0 sm:p-4"
+          onClick={onClose}
+        >
+          <div
+            className="relative flex flex-col w-full h-[100dvh] sm:h-auto sm:max-w-4xl sm:max-h-[90vh] sm:rounded-3xl overflow-hidden bg-slate-950 min-h-0"
+            onClick={(e) => e.stopPropagation()}
+          >
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-slate-950">
-          <div className="flex-1">
+          <div className="flex-1 min-h-0">
             <h3 className="text-lg font-bold text-white">{album.title}</h3>
             <p className="mt-1 text-sm text-slate-400">{currentImage.filename}</p>
           </div>
@@ -198,6 +198,7 @@ const LightboxModal = ({ album, currentImageIndex, onClose, onNext, onPrev, onSe
             src={currentImage.url}
             alt={currentImage.filename}
             className="max-w-full max-h-full object-contain"
+            decoding="async"
           />
         </div>
 
@@ -237,7 +238,7 @@ const LightboxModal = ({ album, currentImageIndex, onClose, onNext, onPrev, onSe
 
         {/* Thumbnail Strip */}
         {album.images.length > 1 && (
-          <div className="px-6 py-4 border-t border-white/10 bg-slate-950 overflow-x-auto">
+          <div className="px-4 sm:px-6 py-4 border-t border-white/10 bg-slate-950 overflow-x-auto shrink-0 pb-[calc(env(safe-area-inset-bottom)+1rem)]">
             <div className="flex gap-2">
               {album.images.map((img, idx) => (
                 <button
@@ -255,6 +256,8 @@ const LightboxModal = ({ album, currentImageIndex, onClose, onNext, onPrev, onSe
                     src={img.url}
                     alt={`Thumbnail ${idx + 1}`}
                     className="w-full h-full object-cover cursor-pointer"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </button>
               ))}
@@ -280,6 +283,8 @@ const AlbumCard = ({ album, onViewAlbum }) => {
           src={coverImage.url}
           alt={album.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>

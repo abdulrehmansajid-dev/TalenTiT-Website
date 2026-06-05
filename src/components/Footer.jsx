@@ -9,10 +9,16 @@ const websiteUrl = 'https://www.talentithospitality.com'
 export default function Footer() {
   return (
     <footer className="bg-slate-950 text-white mt-14 border-t border-white/10">
-      <div className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 py-12 grid md:grid-cols-3 gap-8">
         <div>
           <div className="flex items-center gap-4">
-            <img src={logo} alt="TalenTiT Hospitality logo" className="w-12 h-12 object-cover rounded-xl bg-white" />
+            <img
+              src={logo}
+              alt="TalenTiT Hospitality logo"
+              className="w-12 h-12 object-cover rounded-xl bg-white"
+              loading="lazy"
+              decoding="async"
+            />
             <div>
               <div className="font-semibold text-lg">TalenTiT Hospitality</div>
               <div className="text-sm text-white/70">Training · HR Outsourcing · Talent Acquisition</div>
@@ -28,7 +34,7 @@ export default function Footer() {
           <div className="font-semibold text-white mb-2">Contact</div>
 
           <div>
-            Phone:{' '}
+            Phone / WhatsApp:{' '}
             <a href={`tel:${phoneHref}`} className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors">
               {phoneDisplay}
             </a>

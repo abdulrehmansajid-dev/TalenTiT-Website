@@ -59,8 +59,8 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="contact" className="py-20 sm:py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="max-w-4xl">
           <p className="uppercase tracking-[0.25em] text-orange-600 font-semibold text-sm mb-4">
             Contact TalenTiT
@@ -74,7 +74,7 @@ export default function Contact() {
         </div>
 
         <div className="mt-12 grid lg:grid-cols-5 gap-6 items-stretch">
-          <aside className="lg:col-span-2 rounded-3xl p-7 md:p-8 bg-slate-950 text-white border border-slate-800 shadow-xl shadow-slate-900/20">
+          <aside className="lg:col-span-2 rounded-3xl p-6 sm:p-7 md:p-8 bg-slate-950 text-white border border-slate-800 shadow-xl shadow-slate-900/20">
             <div className="h-1 w-16 bg-orange-600 rounded-full mb-6"></div>
 
             <h3 className="text-2xl font-semibold text-white">
@@ -158,7 +158,7 @@ export default function Contact() {
             </div>
           </aside>
 
-          <div className="lg:col-span-3 rounded-3xl p-7 md:p-8 bg-white border border-slate-200 shadow-xl shadow-slate-900/5">
+          <div className="lg:col-span-3 rounded-3xl p-6 sm:p-7 md:p-8 bg-white border border-slate-200 shadow-xl shadow-slate-900/5">
             <div className="h-1 w-16 bg-orange-600 rounded-full mb-6"></div>
 
             <div className="mb-6">
@@ -189,6 +189,7 @@ export default function Contact() {
                 <input
                   name="name"
                   required
+                  autoComplete="name"
                   className="w-full p-4 border border-slate-300 rounded-xl bg-white focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 active:border-orange-500 transition-colors duration-150"
                   placeholder="Your name"
                 />
@@ -203,6 +204,7 @@ export default function Contact() {
                   name="email"
                   type="email"
                   required
+                  autoComplete="email"
                   className="w-full p-4 border border-slate-300 rounded-xl bg-white focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 active:border-orange-500 transition-colors duration-150"
                   placeholder="you@example.com"
                 />
@@ -216,6 +218,7 @@ export default function Contact() {
                 <textarea
                   name="message"
                   required
+                  rows="6"
                   className="w-full p-4 border border-slate-300 rounded-xl bg-white h-44 focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 active:border-orange-500 transition-colors duration-150"
                   placeholder="How can we help?"
                 ></textarea>
@@ -225,7 +228,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-8 py-3 bg-orange-600 text-white font-semibold rounded-full shadow-lg shadow-orange-500/20 hover:bg-orange-700 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                  className="w-full sm:w-auto px-8 py-3 bg-orange-600 text-white font-semibold rounded-full shadow-lg shadow-orange-500/20 hover:bg-orange-700 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 >
                   {loading ? 'Sending...' : 'Send Message'}
                 </button>

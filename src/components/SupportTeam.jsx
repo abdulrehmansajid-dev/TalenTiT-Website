@@ -26,7 +26,7 @@ export default function SupportTeam() {
       <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-orange-200/40 blur-3xl"></div>
       <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-slate-300/30 blur-3xl"></div>
 
-      <div className="relative max-w-6xl mx-auto px-6 py-14 md:py-16">
+      <div className="relative max-w-6xl mx-auto px-5 sm:px-6 py-14 md:py-16">
         <div className="max-w-3xl mx-auto text-center mb-9">
           <p className="text-xs uppercase tracking-[0.3em] text-orange-700 font-semibold">
             Support Team
@@ -41,18 +41,19 @@ export default function SupportTeam() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-3xl mx-auto">
           {teamMembers.map((member) => (
             <article
               key={member.name}
               className="group rounded-[1.75rem] bg-white/90 backdrop-blur border border-orange-100 px-6 py-7 text-center shadow-lg shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-2xl hover:shadow-orange-500/10"
             >
-              <div className="mx-auto h-32 w-32 overflow-hidden rounded-full border-4 border-orange-100 bg-slate-100 shadow-md">
+              <div className="mx-auto h-28 w-28 sm:h-32 sm:w-32 overflow-hidden rounded-full border-4 border-orange-100 bg-slate-100 shadow-md">
                 <img
                   src={member.image}
                   alt={member.name}
                   className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 

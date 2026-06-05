@@ -113,14 +113,16 @@ export default function About() {
         </div>
 
         {/* CEO PROFILE */}
-        <div className="mt-12 rounded-[2rem] bg-gradient-to-br from-white to-slate-50 border border-slate-200 shadow-xl shadow-slate-900/5 p-6 md:p-10">
-          <div className="grid lg:grid-cols-[420px_1fr] gap-10 items-start">
+        <div className="mt-12 rounded-[2rem] bg-gradient-to-br from-white to-slate-50 border border-slate-200 shadow-xl shadow-slate-900/5 p-5 sm:p-6 md:p-10">
+          <div className="grid lg:grid-cols-[420px_1fr] gap-8 lg:gap-10 items-start">
             <div className="space-y-6">
               <div className="rounded-[1.75rem] overflow-hidden bg-slate-900 shadow-xl">
                 <img
                   src={ceo}
                   alt="Zamir A. Abbasi"
-                  className="w-full h-[560px] object-cover object-top"
+                  className="w-full h-[360px] sm:h-[440px] lg:h-[560px] object-cover object-top"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
@@ -250,14 +252,16 @@ export default function About() {
         </div>
 
         {/* COO PROFILE */}
-        <div className="mt-12 rounded-[1.25rem] bg-white border border-slate-200 shadow-lg p-6 md:p-8">
-          <div className="grid lg:grid-cols-[320px_1fr] gap-8 items-start">
+        <div className="mt-12 rounded-[1.25rem] bg-white border border-slate-200 shadow-lg p-5 sm:p-6 md:p-8">
+          <div className="grid lg:grid-cols-[320px_1fr] gap-6 lg:gap-8 items-start">
             <div className="space-y-4">
               <div className="rounded-[1.25rem] overflow-hidden bg-slate-900 shadow">
                 <img
                   src={coo}
                   alt="Zeeshan Abbasi"
-                  className="w-full h-[360px] object-cover object-top"
+                  className="w-full h-[280px] sm:h-[320px] lg:h-[360px] object-cover object-top"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
@@ -343,7 +347,7 @@ export default function About() {
             </div>
           </div>
 {/* HIGH POWER LEADERSHIP */}
-<div className="mt-10 rounded-[1.5rem] bg-gradient-to-br from-slate-50 to-white border border-slate-200 p-6 md:p-8 shadow-lg shadow-slate-900/5">
+<div className="mt-10 rounded-[1.5rem] bg-gradient-to-br from-slate-50 to-white border border-slate-200 p-5 sm:p-6 md:p-8 shadow-lg shadow-slate-900/5">
   <div className="max-w-3xl">
     <p className="text-xs uppercase tracking-[0.3em] text-orange-600 font-semibold">
       Programs & Certifications
