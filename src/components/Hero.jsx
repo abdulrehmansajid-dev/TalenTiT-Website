@@ -19,7 +19,7 @@ export default function Hero() {
           </span>
 
           <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold leading-[0.98] text-white max-w-[11ch] sm:max-w-none">
-            Building High-Performance Team.
+            Building High-Performance Teams.
           </h1>
 
           <p className="mt-5 text-white/90 text-base sm:text-lg leading-8 max-w-2xl">
