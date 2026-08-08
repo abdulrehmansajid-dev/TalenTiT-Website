@@ -368,6 +368,11 @@ export default function About() {
   <div className="mt-8 grid md:grid-cols-2 xl:grid-cols-3 gap-5">
     {[
       {
+        title: 'Recode Your Brain',
+        description:
+          'Unlock high performance, creativity, and ultimate productivity through neuro-optimization, flow-state mastery, and cognitive rewiring for peak focus and resilience.',
+      },
+      {
         title: 'Neuro-Linguistic Programming (NLP)',
         description:
           'Certified Trainer of NLP, applying mind science to real-world business and consulting challenges.',
@@ -391,6 +396,16 @@ export default function About() {
         title: 'Executive & Leadership Coaching',
         description:
           'Evidence-based coaching solutions for CEOs, senior leaders, entrepreneurs and professionals.',
+      },
+      {
+        title: 'Create Personal Charisma',
+        description:
+          'Develop authentic presence, influence, and attraction to lead with confidence, clarity, and persuasive impact.',
+      },
+      {
+        title: 'Confidence Enhancement',
+        description:
+          'Build self-belief, executive presence, and resilience to communicate powerfully and lead with conviction.',
       },
       {
         title: 'Sales Mastery',
