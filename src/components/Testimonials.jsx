@@ -1,7 +1,7 @@
 import React from 'react'
 import SectionHeader from './SectionHeader'
 
-const hotelLogos = import.meta.glob('../assets/Hotels&Resorts/*.{png,jpg,jpeg,svg}', {
+const hotelLogos = import.meta.glob('../assets/Hotels&Resorts/*.{png,jpg,jpeg,svg,webp}', {
   eager: true,
   import: 'default'
 })
@@ -15,8 +15,8 @@ const logosMap = { ...hotelLogos, ...restaurantLogos }
 
 const orderedPaths = [
   '../assets/Hotels&Resorts/Hyatt Regency.jpeg',
-  '../assets/Hotels&Resorts/The Ritz-Carlton.png',
-  '../assets/Hotels&Resorts/IHG Hotels & Resorts.png',
+  '../assets/Hotels&Resorts/The Ritz-Carlton.webp',
+  '../assets/Hotels&Resorts/IHG Hotels & Resorts.webp',
   '../assets/Hotels&Resorts/Millennium Hotels & Resorts.jpeg',
   '../assets/Hotels&Resorts/Central Hotels & Resorts.png',
   '../assets/Hotels&Resorts/Oceanic Khorfakkan Resort & Spa.png',

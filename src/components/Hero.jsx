@@ -1,5 +1,5 @@
 import React from 'react'
-import heroBg from '../assets/new-hero-bg.jpeg'
+import heroBg from '../assets/new-hero-bg.webp'
 
 const gold = '#D4AF37'
 
