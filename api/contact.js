@@ -121,12 +121,6 @@ module.exports = async function handler(req, res) {
     })
   }
 
-  console.log('Contact API env presence:', {
-    hasResendApiKey,
-    hasReceiverEmail,
-    hasFromEmail,
-  })
-
   if (honeypot) {
     return res.status(200).json({
       success: true,

@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import SectionHeader from './SectionHeader'
 
 const leadershipCourses = [
   {
@@ -599,22 +600,22 @@ const hospitalityTrainingPoints = [
 ]
 
 const HospitalityTrainingSpotlight = () => (
-  <div className="mb-16 overflow-hidden rounded-[2.25rem] border border-slate-200 bg-white shadow-xl shadow-slate-900/5">
+  <div className="mb-12 overflow-hidden rounded-[2.25rem] border border-slate-200 bg-white shadow-md shadow-[#04172f]/5">
     <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-      <div className="relative overflow-hidden bg-slate-950 p-8 md:p-10 text-white">
-        <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-orange-500/20 blur-3xl" />
+      <div className="relative overflow-hidden bg-[#04172f] p-8 md:p-10 text-white">
+        <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-[#ea580c]/20 blur-3xl" />
         <div className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-white/5 blur-3xl" />
 
         <div className="relative">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-orange-400">
+          <p className="eyebrow text-[#ea580c]">
             Hospitality Training
           </p>
 
-          <h2 className="mt-4 text-3xl md:text-4xl font-semibold leading-tight">
+          <h2 className="section-title section-title-on-dark">
             World-Class Training Tailored For Hospitality Organizations
           </h2>
 
-          <p className="mt-5 text-slate-300 leading-8">
+          <p className="mt-4 text-sm md:text-base text-white/80 leading-[1.7] max-w-[46rem]">
             Our training experts bring experience from leading hotel chains and deliver practical programs designed to raise service standards, guest satisfaction and team performance.
           </p>
 
@@ -636,7 +637,7 @@ const HospitalityTrainingSpotlight = () => (
 
           <Link
             to="/contact"
-            className="mt-8 inline-flex rounded-full bg-orange-600 px-7 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-700 hover:shadow-lg hover:shadow-orange-500/20"
+            className="btn-primary mt-8"
           >
             Discuss Training Needs
           </Link>
@@ -644,7 +645,7 @@ const HospitalityTrainingSpotlight = () => (
       </div>
 
       <div className="p-8 md:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-orange-600">
+        <p className="eyebrow">
           What Makes It Different
         </p>
 
@@ -652,7 +653,7 @@ const HospitalityTrainingSpotlight = () => (
           {hospitalityTrainingPoints.map((item) => (
             <div
               key={item.title}
-              className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:bg-white hover:shadow-xl hover:shadow-orange-500/10"
+              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-[#04172f]/5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#ea580c]/35 hover:shadow-md hover:shadow-[#04172f]/8"
             >
               <div className="flex gap-4">
                 <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-700">
@@ -660,11 +661,11 @@ const HospitalityTrainingSpotlight = () => (
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-slate-950">
+                  <h3 className="card-title text-[1.05rem]">
                     {item.title}
                   </h3>
 
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                  <p className="mt-2 card-copy">
                     {item.text}
                   </p>
                 </div>
@@ -678,9 +679,9 @@ const HospitalityTrainingSpotlight = () => (
 )
 
 const CourseCard = ({ course }) => (
-  <article className="group relative h-full rounded-3xl bg-white border border-slate-200 p-7 shadow-md shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-xl hover:shadow-orange-500/10">
+  <article className="group relative flex h-full flex-col rounded-3xl bg-white border border-slate-200 p-6 md:p-7 shadow-md shadow-[#04172f]/5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#ea580c]/35 hover:shadow-lg hover:shadow-[#04172f]/8">
     <div className="flex items-start justify-between gap-4">
-      <div className={`h-1 w-12 rounded-full mb-5 ${course.featured ? 'bg-orange-600' : 'bg-slate-900'}`}></div>
+      <div className={`h-1 w-12 rounded-full mb-5 ${course.featured ? 'bg-[#ea580c]' : 'bg-[#04172f]'}`}></div>
 
       <div className="flex flex-wrap justify-end gap-2">
         {course.duration && (
@@ -697,21 +698,21 @@ const CourseCard = ({ course }) => (
       </div>
     </div>
 
-    <h3 className="text-xl font-semibold text-slate-950">
+    <h3 className="card-title">
       {course.title}
     </h3>
 
-    <p className="mt-3 text-sm text-slate-600 leading-7">
+    <p className="mt-3 card-copy">
       {course.description}
     </p>
 
-    <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-600">
+    <p className="mt-6 eyebrow">
       Key Outcomes
     </p>
 
     <ul className="mt-3 space-y-2">
       {course.outcomes.map((outcome) => (
-        <li key={outcome} className="flex gap-2 text-sm text-slate-600 leading-6">
+        <li key={outcome} className="flex gap-2 card-copy">
           <span className="mt-1 text-orange-600">✓</span>
           <span>{outcome}</span>
         </li>
@@ -720,15 +721,16 @@ const CourseCard = ({ course }) => (
 
     <Link
       to="/contact"
-      className="mt-7 inline-flex text-sm font-semibold text-slate-950 group-hover:text-orange-600 transition-colors"
+      className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-[#04172f] transition-all duration-200 ease-out group-hover:text-[#ea580c]"
     >
-      Discuss this program →
+      Discuss this program
+      <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-0.5">→</span>
     </Link>
   </article>
 )
 
 const FeaturedProgramCard = ({ program }) => (
-  <article className="group rounded-[2rem] bg-white border border-slate-200 p-7 shadow-xl shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-orange-500/10">
+  <article className="group flex h-full flex-col rounded-3xl bg-white border border-slate-200 p-6 md:p-7 shadow-md shadow-[#04172f]/5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#ea580c]/35 hover:shadow-lg hover:shadow-[#04172f]/8">
     <div className="flex items-center justify-between gap-4">
       <span className="rounded-full bg-orange-100 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-orange-700">
         {program.category}
@@ -739,11 +741,11 @@ const FeaturedProgramCard = ({ program }) => (
       </span>
     </div>
 
-    <h3 className="mt-6 text-2xl font-semibold text-slate-950 leading-tight">
+    <h3 className="mt-6 card-title text-[1.5rem]">
       {program.title}
     </h3>
 
-    <p className="mt-4 text-sm text-slate-600 leading-7">
+    <p className="mt-4 card-copy">
       {program.description}
     </p>
 
@@ -755,13 +757,15 @@ const FeaturedProgramCard = ({ program }) => (
       ))}
     </div>
 
-    <Link
-      to={program.link}
-      className="mt-7 inline-flex items-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 group-hover:bg-orange-600"
-    >
-      View Program
-      <span>→</span>
-    </Link>
+    <div className="mt-auto pt-5">
+      <Link
+        to={program.link}
+        className="btn-secondary btn-compact w-full"
+      >
+        View Program
+        <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-0.5">→</span>
+      </Link>
+    </div>
   </article>
 )
 
@@ -820,22 +824,22 @@ export default function Training() {
 
   return (
     <section id="training" className="bg-slate-50">
-      <div className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-orange-500/20 blur-3xl"></div>
+      <div className="relative overflow-hidden bg-[#04172f] text-white">
+        <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#ea580c]/20 blur-3xl"></div>
         <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-white/5 blur-3xl"></div>
 
-        <div className="relative max-w-6xl mx-auto px-6 py-24">
-          <p className="uppercase tracking-[0.25em] text-orange-400 font-semibold text-sm mb-5">
+        <div className="relative site-container site-section-emphasis">
+          <p className="eyebrow text-[#ea580c]">
             Training & Coaching Catalogue
           </p>
 
-          <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
+          <h1 className="section-title section-title-on-dark text-[2rem] sm:text-[2.4rem] lg:text-[2.75rem]">
             Empower People.
             <br />
-            <span className="text-orange-400">Transform Performance.</span>
+            <span className="text-[#ea580c]">Transform Performance.</span>
           </h1>
 
-          <p className="mt-6 max-w-3xl text-slate-300 leading-8">
+          <p className="mt-4 max-w-[46rem] text-sm md:text-base text-white/80 leading-[1.7]">
             Explore practical, engaging, and results-driven training and coaching programs
             designed for leaders, employees, sales teams, and individuals seeking professional
             or personal transformation.
@@ -866,26 +870,17 @@ export default function Training() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      <div className="site-container site-section">
         <HospitalityTrainingSpotlight />
 
-        <div className="mb-16">
-          <div className="max-w-3xl">
-            <p className="uppercase tracking-[0.22em] text-orange-600 font-semibold text-xs">
-              Featured Programs
-            </p>
+        <div className="mb-12">
+          <SectionHeader
+            eyebrow="Featured Programs"
+            title="Featured Professional Development Programs"
+            description="High-impact programs designed for certification, sales performance, personal influence, leadership presence, and behavioural transformation."
+          />
 
-            <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-slate-950">
-              Featured Professional Development Programs
-            </h2>
-
-            <p className="mt-4 text-slate-600 leading-8">
-              High-impact programs designed for certification, sales performance, personal influence,
-              leadership presence, and behavioural transformation.
-            </p>
-          </div>
-
-          <div className="mt-10 grid lg:grid-cols-3 gap-6">
+          <div className="section-content grid lg:grid-cols-3 gap-6">
             {featuredPrograms.map((program) => (
               <FeaturedProgramCard key={program.title} program={program} />
             ))}
@@ -893,17 +888,12 @@ export default function Training() {
         </div>
 
         <div id="programme-categories" className="scroll-mt-28">
-          <div className="max-w-3xl mb-8">
-            <p className="uppercase tracking-[0.22em] text-orange-600 font-semibold text-xs">
-              Programme Categories
-            </p>
+          <SectionHeader
+            eyebrow="Programme Categories"
+            title="Explore Our Training Streams"
+          />
 
-            <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-slate-950">
-              Explore Our Training Streams
-            </h2>
-          </div>
-
-          <div className="flex flex-wrap gap-3 border-b border-slate-200 mb-12">
+          <div className="section-content flex flex-wrap gap-3 border-b border-slate-200 mb-10">
             {trainingCategories.map((category) => (
               <button
                 key={category.id}
@@ -922,7 +912,7 @@ export default function Training() {
                 className={`px-5 py-4 text-sm font-semibold transition-all border-b-2 ${
                   activeTab === category.id
                     ? 'border-orange-600 text-orange-600'
-                    : 'border-transparent text-slate-600 hover:text-slate-950'
+                    : 'border-transparent text-slate-600 hover:text-[#04172f]'
                 }`}
               >
                 {category.label}
@@ -932,17 +922,17 @@ export default function Training() {
 
           <div className="grid lg:grid-cols-2 gap-10 items-start border-b border-slate-200 pb-12 mb-12">
             <div>
-              <p className="uppercase tracking-[0.22em] text-orange-600 font-semibold text-xs">
+              <p className="eyebrow">
                 {activeCategory.eyebrow}
               </p>
 
-              <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-slate-950">
+              <h2 className="section-title">
                 {activeCategory.headline}
               </h2>
             </div>
 
             <div>
-              <p className="text-slate-600 leading-8">
+              <p className="section-text mt-0">
                 {activeCategory.description}
               </p>
 
@@ -966,16 +956,16 @@ export default function Training() {
           </div>
         </div>
 
-        <div className="mt-20 rounded-[2rem] bg-white border border-slate-200 shadow-xl shadow-slate-900/5 overflow-hidden">
+        <div className="mt-20 rounded-[2rem] bg-white border border-slate-200 shadow-md shadow-[#04172f]/5 overflow-hidden">
           <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="bg-slate-950 text-white p-8 md:p-10">
-              <div className="h-1 w-16 bg-orange-600 rounded-full mb-6"></div>
+            <div className="bg-[#04172f] text-white p-8 md:p-10">
+              <div className="h-1 w-16 bg-[#ea580c] rounded-full mb-6"></div>
 
-              <h3 className="text-3xl font-semibold">
+              <h3 className="section-title section-title-on-dark text-[1.75rem] md:text-[1.9rem]">
                 Expert-Led Learning Experience
               </h3>
 
-              <p className="mt-4 text-slate-300 leading-8">
+              <p className="mt-4 text-sm md:text-base text-white/80 leading-[1.7]">
                 Our programs combine practical workplace application, behavioural transformation,
                 interactive exercises, coaching conversations, role plays, and real-world business examples.
               </p>
@@ -1000,10 +990,10 @@ export default function Training() {
           </div>
         </div>
 
-        <div className="mt-8 rounded-[2rem] bg-slate-950 text-white p-8 md:p-10">
-          <div className="h-1 w-16 bg-orange-600 rounded-full mb-6"></div>
+        <div className="mt-8 rounded-[2rem] bg-[#04172f] text-white p-8 md:p-10">
+          <div className="h-1 w-16 bg-[#ea580c] rounded-full mb-6"></div>
 
-          <h3 className="text-3xl font-semibold">
+          <h3 className="section-title section-title-on-dark text-[1.75rem] md:text-[1.9rem]">
             Training Delivery Methods
           </h3>
 
@@ -1022,11 +1012,11 @@ export default function Training() {
         <div className="mt-8 rounded-[2rem] bg-orange-50 border border-orange-200 p-8 md:p-10">
           <div className="h-1 w-16 bg-orange-600 rounded-full mb-6"></div>
 
-          <h3 className="text-3xl font-semibold text-slate-950">
+          <h3 className="section-title">
             Customization Available
           </h3>
 
-          <p className="mt-4 text-slate-700 leading-7 max-w-3xl">
+          <p className="section-text">
             Every organization has different challenges and goals. We can customize training
             content based on your specific needs:
           </p>
@@ -1041,19 +1031,19 @@ export default function Training() {
           </div>
         </div>
 
-        <div className="mt-8 rounded-[2rem] bg-white border border-slate-200 shadow-xl shadow-slate-900/5 p-10 text-center">
-          <h3 className="text-3xl font-semibold text-slate-950">
+        <div className="mt-8 rounded-[2rem] bg-white border border-slate-200 shadow-md shadow-[#04172f]/5 p-10 text-center">
+          <h3 className="section-title">
             Ready to Transform Your Team?
           </h3>
 
-          <p className="mt-4 max-w-2xl mx-auto text-slate-600 leading-7">
+          <p className="section-text mx-auto">
             Get in touch today to discuss your customized training solutions, certification programs,
             coaching needs, and workforce development goals.
           </p>
 
           <Link
             to="/contact"
-            className="inline-flex mt-8 px-8 py-3 rounded-full bg-orange-600 text-white font-semibold hover:bg-orange-700 hover:-translate-y-0.5 transition-all duration-300 shadow-lg shadow-orange-500/20"
+            className="btn-primary mt-8"
           >
             Request Training Proposal
           </Link>

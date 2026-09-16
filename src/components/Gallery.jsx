@@ -172,11 +172,11 @@ const LightboxModal = ({ album, currentImageIndex, onClose, onNext, onPrev, onSe
           onClick={onClose}
         >
           <div
-            className="relative flex flex-col w-full h-[100dvh] sm:h-auto sm:max-w-4xl sm:max-h-[90vh] sm:rounded-3xl overflow-hidden bg-slate-950 min-h-0"
+            className="relative flex flex-col w-full h-[100dvh] sm:h-auto sm:max-w-4xl sm:max-h-[90vh] sm:rounded-3xl overflow-hidden bg-[#04172f] min-h-0"
             onClick={(e) => e.stopPropagation()}
           >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-slate-950">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#031326]">
           <div className="flex-1 min-h-0">
             <h3 className="text-lg font-bold text-white">{album.title}</h3>
             <p className="mt-1 text-sm text-slate-400">{currentImage.filename}</p>
@@ -203,7 +203,7 @@ const LightboxModal = ({ album, currentImageIndex, onClose, onNext, onPrev, onSe
         </div>
 
         {/* Navigation & Counter */}
-        <div className="flex items-center justify-between px-6 py-4 border-t border-white/10 bg-slate-950">
+        <div className="flex items-center justify-between px-6 py-4 border-t border-white/10 bg-[#031326]">
           {/* Left Arrow */}
           <button
             onClick={onPrev}
@@ -238,7 +238,7 @@ const LightboxModal = ({ album, currentImageIndex, onClose, onNext, onPrev, onSe
 
         {/* Thumbnail Strip */}
         {album.images.length > 1 && (
-          <div className="px-4 sm:px-6 py-4 border-t border-white/10 bg-slate-950 overflow-x-auto shrink-0 pb-[calc(env(safe-area-inset-bottom)+1rem)]">
+          <div className="px-4 sm:px-6 py-4 border-t border-white/10 bg-[#031326] overflow-x-auto shrink-0 pb-[calc(env(safe-area-inset-bottom)+1rem)]">
             <div className="flex gap-2">
               {album.images.map((img, idx) => (
                 <button
@@ -247,7 +247,7 @@ const LightboxModal = ({ album, currentImageIndex, onClose, onNext, onPrev, onSe
                   onClick={() => onSelectImage(idx)}
                   className={`shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
                     idx === currentImageIndex
-                      ? 'border-orange-600 shadow-lg shadow-orange-600/30'
+                      ? 'border-[#ea580c] shadow-lg shadow-[#ea580c]/30'
                       : 'border-white/10 hover:border-white/30'
                   }`}
                   aria-label={`View image ${idx + 1} of ${album.images.length}`}
@@ -276,7 +276,7 @@ const AlbumCard = ({ album, onViewAlbum }) => {
   const coverImage = album.images[0]
 
   return (
-    <article className="group relative rounded-3xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-white border border-slate-200 shadow-md shadow-[#04172f]/5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#ea580c]/35 hover:shadow-lg hover:shadow-[#04172f]/8">
       {/* Image Container */}
       <div className="relative h-64 sm:h-72 overflow-hidden bg-slate-100">
         <img
@@ -290,14 +290,14 @@ const AlbumCard = ({ album, onViewAlbum }) => {
       </div>
 
       {/* Content */}
-      <div className="p-5 sm:p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         {/* Category Badge */}
         <div className="mb-3">
           <CategoryBadge category={album.category} />
         </div>
 
         {/* Title */}
-        <h3 className="text-lg sm:text-xl font-bold text-slate-950 mb-3 line-clamp-2">
+        <h3 className="card-title mb-3 line-clamp-2">
           {album.title}
         </h3>
 
@@ -312,7 +312,7 @@ const AlbumCard = ({ album, onViewAlbum }) => {
         <button
           type="button"
           onClick={() => onViewAlbum(album)}
-          className="w-full px-5 py-3 rounded-full bg-orange-600 text-white font-semibold text-sm hover:bg-orange-700 transition-all duration-200 flex items-center justify-center gap-2 group"
+          className="btn-primary mt-auto w-full"
         >
           View Album
           <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -399,42 +399,42 @@ export default function Gallery() {
   return (
     <div className="bg-white" id="gallery">
       {/* ======== Hero Section ======== */}
-      <section className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white py-20 sm:py-28 overflow-hidden">
+      <section className="relative bg-[#04172f] text-white overflow-hidden">
         {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-600/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-[#ea580c]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#ea580c]/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
-        <div className="relative max-w-5xl mx-auto px-6 sm:px-8 text-center">
+        <div className="relative site-container site-section-emphasis text-center">
           {/* Eyebrow */}
-          <div className="inline-block px-4 py-2 rounded-full bg-orange-600/20 border border-orange-600/40 mb-6">
-            <span className="text-xs uppercase tracking-widest font-semibold text-orange-400">
+          <div className="inline-block px-4 py-2 rounded-full bg-[#ea580c]/20 border border-[#ea580c]/40 mb-5">
+            <span className="eyebrow mb-0 text-[#ea580c]">
               Training Gallery
             </span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Moments That Reflect <span className="text-orange-500">Learning, Growth & Excellence.</span>
+          <h1 className="section-title section-title-on-dark mx-auto max-w-4xl">
+            Moments That Reflect <span className="text-[#ea580c]">Learning, Growth & Excellence.</span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg sm:text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="section-text mx-auto text-white/80 mt-4 mb-10">
             Explore moments from our corporate training programs, leadership workshops, service excellence sessions, team building activities, and professional development events.
           </p>
 
           {/* Stats Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-            <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm p-6 hover:bg-white/10 transition-all duration-300">
-              <p className="text-3xl sm:text-4xl font-bold text-orange-400 mb-2">{albums.length > 0 ? '30+' : '–'}</p>
-              <p className="text-sm text-slate-300">Training Moments</p>
+            <div className="rounded-2xl bg-[#031326] border border-white/10 p-6 transition-all duration-200 ease-out hover:border-[#ea580c]/35">
+              <p className="text-3xl sm:text-4xl font-bold text-[#ea580c] mb-2">{albums.length > 0 ? '30+' : '–'}</p>
+              <p className="text-sm text-white/70">Training Moments</p>
             </div>
-            <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm p-6 hover:bg-white/10 transition-all duration-300">
-              <p className="text-3xl sm:text-4xl font-bold text-orange-400 mb-2">{categories.length - 1}+</p>
-              <p className="text-sm text-slate-300">Program Categories</p>
+            <div className="rounded-2xl bg-[#031326] border border-white/10 p-6 transition-all duration-200 ease-out hover:border-[#ea580c]/35">
+              <p className="text-3xl sm:text-4xl font-bold text-[#ea580c] mb-2">{categories.length - 1}+</p>
+              <p className="text-sm text-white/70">Program Categories</p>
             </div>
-            <div className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm p-6 hover:bg-white/10 transition-all duration-300">
-              <p className="text-3xl sm:text-4xl font-bold text-orange-400 mb-2">100%</p>
-              <p className="text-sm text-slate-300">Corporate Focused</p>
+            <div className="rounded-2xl bg-[#031326] border border-white/10 p-6 transition-all duration-200 ease-out hover:border-[#ea580c]/35">
+              <p className="text-3xl sm:text-4xl font-bold text-[#ea580c] mb-2">100%</p>
+              <p className="text-sm text-white/70">Corporate Focused</p>
             </div>
           </div>
         </div>
@@ -442,11 +442,11 @@ export default function Gallery() {
 
       {/* ======== Featured Albums Section ======== */}
       {featuredAlbums.length > 0 && (
-        <section className="py-16 sm:py-20 px-6 sm:px-8 max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-950 mb-2">Featured Training Moments</h2>
-          <p className="text-slate-600 mb-10">Highlights from our most impactful programs</p>
+        <section className="site-container site-section">
+          <h2 className="section-title">Featured Training Moments</h2>
+          <p className="section-text">Highlights from our most impactful programs</p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="section-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredAlbums.map((album, idx) => (
               <AlbumCard
                 key={idx}
@@ -459,9 +459,9 @@ export default function Gallery() {
       )}
 
       {/* ======== Filter Section ======== */}
-      <section className="py-12 sm:py-16 px-6 sm:px-8 bg-slate-50 border-y border-slate-200">
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-lg font-semibold text-slate-950 mb-6">Filter by Category</h3>
+      <section className="bg-slate-50 border-y border-slate-200">
+        <div className="site-container site-section-compact">
+          <h3 className="card-title mb-6">Filter by Category</h3>
           <div className="flex flex-wrap gap-3">
             {categories.map((category) => (
               <button
@@ -470,8 +470,8 @@ export default function Gallery() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-5 py-2.5 rounded-full font-medium transition-all duration-200 text-sm sm:text-base ${
                   selectedCategory === category
-                    ? 'bg-orange-600 text-white shadow-lg shadow-orange-600/30'
-                    : 'bg-white border border-slate-300 text-slate-700 hover:border-orange-600 hover:text-orange-600'
+                    ? 'bg-[#ea580c] text-white shadow-lg shadow-[#ea580c]/25'
+                    : 'bg-white border border-slate-300 text-slate-700 hover:border-[#ea580c] hover:text-[#ea580c]'
                 }`}
               >
                 {category}
@@ -482,16 +482,16 @@ export default function Gallery() {
       </section>
 
       {/* ======== Albums Grid Section ======== */}
-      <section className="py-16 sm:py-20 px-6 sm:px-8 max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-slate-950 mb-2">Explore Our Gallery Albums</h2>
-        <p className="text-slate-600 mb-10">
+      <section className="site-container site-section">
+        <h2 className="section-title">Explore Our Gallery Albums</h2>
+        <p className="section-text">
           {selectedCategory === 'All'
             ? `Discover all ${albums.length} training albums`
             : `Showing ${filteredAlbums.length} album${filteredAlbums.length === 1 ? '' : 's'} in ${selectedCategory}`}
         </p>
 
         {filteredAlbums.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="section-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredAlbums.map((album, idx) => (
               <AlbumCard
                 key={idx}
@@ -508,17 +508,18 @@ export default function Gallery() {
       </section>
 
       {/* ======== CTA Section ======== */}
-      <section className="bg-slate-950 text-white py-16 sm:py-20 px-6 sm:px-8">
+      <section className="bg-[#04172f] text-white py-16 sm:py-20 px-6 sm:px-8 border-t border-white/10 mb-8">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <div className="mx-auto mb-6 h-1 w-16 rounded-full bg-[#ea580c]" />
+          <h2 className="text-3xl sm:text-4xl font-semibold mb-4">
             Want to Create Impactful Learning Experiences for Your Team?
           </h2>
-          <p className="text-lg text-slate-300 mb-8">
+          <p className="text-lg text-white/80 mb-8 leading-7">
             Get in touch to discuss customized training, coaching, and development programs for your organization.
           </p>
           <Link
             to="/contact"
-            className="inline-flex px-8 py-4 rounded-full bg-orange-600 text-white font-semibold hover:bg-orange-700 transition-all duration-200 hover:shadow-lg hover:shadow-orange-600/30"
+            className="btn-primary"
           >
             Request Training Proposal
           </Link>

@@ -39,19 +39,18 @@ const logos = orderedPaths.map((p) => logosMap[p]).filter(Boolean)
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 bg-slate-50">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="testimonials" className="bg-slate-50">
+      <div className="site-container site-section">
         <div className="grid lg:grid-cols-5 gap-8 items-start">
           <div className="lg:col-span-3">
             <SectionHeader
               title="Organizations We Transformed"
               description="Selected hospitality, dining, and lifestyle partners that have benefited from our recruitment, training, and HR support."
-              className="max-w-3xl"
             />
           </div>
 
-          <aside className="lg:col-span-2 rounded-2xl bg-black text-white p-6 shadow-lg border border-slate-800">
-  <h3 className="text-xl font-semibold text-white">
+          <aside className="lg:col-span-2 rounded-2xl bg-[#04172f] text-white p-6 shadow-lg border border-white/10">
+  <h3 className="card-title text-white">
     Global Reach
   </h3>
 
@@ -70,13 +69,13 @@ export default function Testimonials() {
 </aside>
         </div>
 
-        <div className="mt-12 rounded-3xl bg-slate-50 p-6 md:p-8 border border-slate-200 shadow-sm">
+        <div className="section-content rounded-3xl bg-white p-6 md:p-8 border border-slate-200 shadow-sm shadow-[#04172f]/5">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-orange-700 font-semibold">
+              <p className="eyebrow">
                 Client Network
               </p>
-              <h3 className="mt-2 text-2xl font-semibold text-primary-950">
+              <h3 className="card-title text-[1.5rem]">
                 Brands and organizations we have supported
               </h3>
             </div>
@@ -99,7 +98,7 @@ export default function Testimonials() {
 
 function LogoCard({ src, index }) {
   return (
-    <div className="h-36 md:h-40 rounded-2xl bg-white border border-slate-200 p-5 flex items-center justify-center shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/80 transition-all duration-300">
+    <div className="h-36 md:h-40 rounded-2xl bg-white border border-slate-200 p-5 flex items-center justify-center shadow-sm shadow-[#04172f]/5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#04172f]/15 hover:shadow-md hover:shadow-[#04172f]/8">
       <img
         src={src}
         alt={`Client logo ${index + 1}`}

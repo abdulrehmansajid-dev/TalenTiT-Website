@@ -1,10 +1,18 @@
 import React from 'react'
 
-export default function SectionHeader({ title, description, className = '', centered = false }) {
+export default function SectionHeader({
+  eyebrow,
+  title,
+  description,
+  className = '',
+  centered = false,
+  onDark = false,
+}) {
   return (
-    <div className={`${centered ? 'mx-auto text-center' : ''} ${className}`.trim()}>
-      <h2 className="section-title font-semibold">{title}</h2>
-      {description ? <p className="mt-4 section-text text-base md:text-lg max-w-3xl">{description}</p> : null}
+    <div className={`section-header ${centered ? 'centered mx-auto text-center' : ''} ${className}`.trim()}>
+      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+      <h2 className={`section-title ${onDark ? 'section-title-on-dark' : ''}`.trim()}>{title}</h2>
+      {description ? <p className="section-text">{description}</p> : null}
     </div>
   )
 }

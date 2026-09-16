@@ -8,8 +8,8 @@ const websiteUrl = 'https://talentithospitality.com'
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-white mt-14 border-t border-white/10">
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 py-12 grid md:grid-cols-3 gap-8">
+    <footer className="bg-[#04172f] text-white border-t border-white/10">
+      <div className="site-container py-10 md:py-12 grid md:grid-cols-3 gap-8">
         <div>
           <div className="flex items-center gap-4">
             <img
@@ -35,14 +35,14 @@ export default function Footer() {
 
           <div>
             Phone / WhatsApp:{' '}
-            <a href={`tel:${phoneHref}`} className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors">
+            <a href={`tel:${phoneHref}`} className="underline decoration-white/30 underline-offset-4 hover:text-[#ea580c] transition-colors">
               {phoneDisplay}
             </a>
           </div>
 
           <div>
             Email:{' '}
-            <a href={`mailto:${contactEmail}`} className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors">
+            <a href={`mailto:${contactEmail}`} className="underline decoration-white/30 underline-offset-4 hover:text-[#ea580c] transition-colors">
               {contactEmail}
             </a>
           </div>
@@ -53,7 +53,7 @@ export default function Footer() {
               href={websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors"
+              className="underline decoration-white/30 underline-offset-4 hover:text-[#ea580c] transition-colors"
             >
               talentithospitality.com
             </a>
@@ -67,7 +67,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="text-center text-white/70 text-sm py-4 border-t border-white/10 bg-slate-900/40">
+      <div className="text-center text-white/70 text-sm py-4 border-t border-white/10 bg-[#031326]">
         © {new Date().getFullYear()} TalenTiT Hospitality. All rights reserved.
       </div>
     </footer>

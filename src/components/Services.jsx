@@ -46,21 +46,20 @@ const services = [
 export default function Services() {
   return (
     <section id="services" className="bg-slate-50">
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      <div className="site-container site-section">
         <SectionHeader
           title="Other Services"
           description="Consulting, HR audits, policy design, employee engagement programs and bespoke service offerings."
-          className="max-w-3xl"
         />
 
-        <div className="mt-12 grid lg:grid-cols-3 gap-6">
+        <div className="section-content grid lg:grid-cols-3 gap-6">
           {services.map((service) => (
             <article
               key={service.number}
-              className="group rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/80"
+              className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 md:p-7 shadow-sm shadow-[#04172f]/5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#ea580c]/35 hover:shadow-md hover:shadow-[#04172f]/8"
             >
               <div className="flex items-center justify-between gap-4">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-950 text-sm font-semibold text-white">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#04172f] text-sm font-semibold text-white">
                   {service.number}
                 </span>
 
@@ -74,16 +73,16 @@ export default function Services() {
                   {service.subtitle}
                 </p>
 
-                <h3 className="mt-3 text-2xl font-semibold text-primary-950">
+                <h3 className="mt-3 section-title text-[1.65rem] md:text-[1.75rem]">
                   {service.title}
                 </h3>
 
-                <p className="mt-4 text-sm leading-7 text-slate-600">
+                <p className="mt-4 card-copy">
                   {service.description}
                 </p>
               </div>
 
-              <div className="mt-7 space-y-3">
+              <div className="mt-auto space-y-3 pt-6">
                 {service.points.map((point) => (
                   <div key={point} className="flex gap-3">
                     <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-100 text-xs font-bold text-orange-700">
@@ -101,15 +100,15 @@ export default function Services() {
         </div>
 
         <div className="mt-14 rounded-3xl border border-orange-200 bg-orange-50 px-6 py-10 md:p-12 text-center shadow-xl shadow-orange-100/80">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-orange-700">
+          <p className="eyebrow">
             Bespoke Support
           </p>
 
-          <h3 className="mt-4 text-3xl md:text-4xl font-semibold text-primary-950">
+          <h3 className="section-title">
             Flexible solutions for stronger teams and better service
           </h3>
 
-          <p className="mt-4 max-w-2xl mx-auto text-slate-600 leading-7">
+          <p className="section-text mx-auto">
             Whether you need service audits, outsourced training support or launch preparation,
             we design practical solutions around your business goals.
           </p>

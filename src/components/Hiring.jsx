@@ -29,29 +29,28 @@ const recruitmentCapabilities = [
 export default function Hiring() {
   return (
     <section id="hiring" className="bg-white">
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      <div className="site-container site-section">
         <SectionHeader
           title="Hiring & Selection"
           description="Recruitment services tailored for hospitality organisations that need the right people, the right mindset and the right service culture."
-          className="max-w-3xl"
         />
 
-        <div className="mt-12 overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 shadow-xl shadow-slate-900/5">
+        <div className="section-content overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-md shadow-[#04172f]/5">
           <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="relative overflow-hidden bg-slate-950 p-8 md:p-10 text-white">
-              <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-orange-500/20 blur-3xl" />
+            <div className="relative overflow-hidden bg-[#04172f] p-8 md:p-10 text-white">
+              <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#ea580c]/20 blur-3xl" />
               <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-white/5 blur-3xl" />
 
               <div className="relative">
-                <span className="inline-flex rounded-full bg-orange-500/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-orange-300 ring-1 ring-orange-400/20">
+                <span className="inline-flex rounded-full bg-[#ea580c]/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-[#ea580c] ring-1 ring-[#ea580c]/20">
                   Recruitment Services
                 </span>
 
-                <h2 className="mt-6 text-3xl md:text-4xl font-semibold leading-tight">
+                <h2 className="section-title section-title-on-dark">
                   Talent Hunt & Selection
                 </h2>
 
-                <p className="mt-5 text-slate-300 leading-8">
+                <p className="mt-4 text-sm md:text-base text-white/80 leading-[1.7]">
                   We understand the value of a precise talent hunt. With over two decades of recruitment expertise, we identify candidates whose skills, behaviour and service mindset align with your organisation.
                 </p>
 
@@ -73,7 +72,7 @@ export default function Hiring() {
 
                 <Link
                   to="/contact"
-                  className="mt-8 inline-flex rounded-full bg-orange-600 px-7 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-700 hover:shadow-lg hover:shadow-orange-500/20"
+                  className="btn-primary mt-8"
                 >
                   Discuss Hiring Needs
                 </Link>
@@ -81,24 +80,24 @@ export default function Hiring() {
             </div>
 
             <div className="p-8 md:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-orange-600">
+              <p className="eyebrow">
                 How We Support Your Recruitment
               </p>
 
               <div className="mt-7 grid gap-5">
                 {recruitmentPoints.map((item, index) => (
-                  <div key={item.title} className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-xl hover:shadow-orange-500/10">
+                  <div key={item.title} className="group flex h-full rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-[#04172f]/5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#ea580c]/35 hover:shadow-md hover:shadow-[#04172f]/8">
                     <div className="flex gap-4">
                       <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-700">
                         {String(index + 1).padStart(2, '0')}
                       </div>
 
                       <div>
-                        <h3 className="font-semibold text-primary-950">
+                        <h3 className="card-title text-[1.05rem]">
                           {item.title}
                         </h3>
 
-                        <p className="mt-2 text-sm leading-6 text-slate-600">
+                        <p className="card-copy mt-2">
                           {item.text}
                         </p>
                       </div>
@@ -108,7 +107,7 @@ export default function Hiring() {
               </div>
 
               <div className="mt-8 rounded-2xl border border-orange-100 bg-orange-50 p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-700">
+                <p className="eyebrow">
                   Recruitment Coverage
                 </p>
 
@@ -128,15 +127,15 @@ export default function Hiring() {
         </div>
 
         <div className="mt-14 rounded-3xl bg-orange-50 px-6 py-10 md:p-12 text-center shadow-xl shadow-orange-100/80 border border-orange-200">
-          <p className="text-xs uppercase tracking-[0.3em] text-orange-700 font-semibold">
+          <p className="eyebrow">
             Talent Development Partner
           </p>
 
-          <h3 className="mt-4 text-3xl md:text-4xl font-semibold text-primary-950">
+          <h3 className="section-title">
             Your partner in building world-class teams
           </h3>
 
-          <p className="mt-4 max-w-2xl mx-auto text-slate-600 leading-7">
+          <p className="section-text mx-auto">
             From executive search to culture-fit hiring, we help organisations attract,
             select and retain exceptional hospitality talent.
           </p>

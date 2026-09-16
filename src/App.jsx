@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -125,6 +125,7 @@ export default function App() {
 
         {/* Standalone gallery page */}
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
       <Footer />

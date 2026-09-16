@@ -146,8 +146,8 @@ export default function Navbar() {
       className={({ isActive }) =>
         `text-sm font-semibold px-4 py-2.5 rounded-full transition-all duration-200 ${
           isActive
-            ? 'bg-white text-orange-600 shadow-md shadow-black/10'
-            : 'text-white/90 hover:bg-white/10 hover:text-orange-400'
+            ? 'bg-white text-[#ea580c] shadow-md shadow-black/10'
+            : 'text-white/90 hover:bg-white/10 hover:text-[#ea580c]'
         }`
       }
     >
@@ -156,7 +156,7 @@ export default function Navbar() {
   )
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-slate-950/95 text-white border-b border-white/10 shadow-lg shadow-slate-950/20 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full bg-[#04172f]/95 text-white border-b border-white/10 shadow-lg shadow-[#04172f]/20 backdrop-blur-xl">
       <div className="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between gap-4">
         <Link
           to="/"
@@ -186,8 +186,8 @@ export default function Navbar() {
               onClick={() => setTrainingOpen((value) => !value)}
               className={`text-sm font-semibold px-4 py-2.5 rounded-full transition-all duration-200 inline-flex items-center gap-2 ${
                 isTrainingActive
-                  ? 'bg-white text-orange-600 shadow-md shadow-black/10'
-                  : 'text-white/90 hover:bg-white/10 hover:text-orange-400'
+                  ? 'bg-white text-[#ea580c] shadow-md shadow-black/10'
+                  : 'text-white/90 hover:bg-white/10 hover:text-[#ea580c]'
               }`}
             >
               Training Catalogue
@@ -212,8 +212,8 @@ export default function Navbar() {
             {trainingOpen && (
               <div className="absolute right-0 top-full z-50 pt-3 w-[345px]">
                 <div className="overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-2xl shadow-slate-950/20 ring-1 ring-slate-900/5">
-                  <div className="px-4 py-3 bg-slate-950 text-white">
-                    <p className="text-[10px] uppercase tracking-[0.22em] text-orange-400 font-semibold">
+                  <div className="px-4 py-3 bg-[#04172f] text-white">
+                    <p className="text-[10px] uppercase tracking-[0.22em] text-[#ea580c] font-semibold">
                       Training & Coaching
                     </p>
                     <p className="mt-1 text-xs text-slate-300">
@@ -233,7 +233,7 @@ export default function Navbar() {
                       >
                         <div className="flex items-center justify-between gap-3">
                           <div>
-                            <p className="text-sm font-semibold text-slate-900 group-hover:text-orange-600">
+                            <p className="text-sm font-semibold text-slate-900 group-hover:text-[#ea580c]">
                               {item.label}
                             </p>
                             <p className="mt-0.5 text-xs text-slate-500">
@@ -241,7 +241,7 @@ export default function Navbar() {
                             </p>
                           </div>
 
-                          <span className="text-slate-300 group-hover:text-orange-500 transition-colors">
+                          <span className="text-slate-300 group-hover:text-[#c2410c] transition-colors">
                             →
                           </span>
                         </div>
@@ -253,7 +253,7 @@ export default function Navbar() {
                     <Link
                       to="/training"
                       onClick={() => handleNavClick('/training')}
-                      className="inline-flex w-full justify-center rounded-full bg-orange-600 px-4 py-2.5 text-xs font-semibold text-white hover:bg-orange-700 transition-all duration-200"
+                      className="inline-flex w-full justify-center rounded-full bg-[#ea580c] px-4 py-2.5 text-xs font-semibold text-white hover:bg-[#c2410c] transition-all duration-200"
                     >
                       View Full Catalogue
                     </Link>
@@ -276,7 +276,7 @@ export default function Navbar() {
             setOpen((value) => !value)
             setTrainingOpen(false)
           }}
-          className="md:hidden p-2 rounded-xl text-white hover:bg-white/10 hover:text-orange-400 transition-all duration-200"
+          className="md:hidden p-2 rounded-xl text-white hover:bg-white/10 hover:text-[#ea580c] transition-all duration-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -300,12 +300,12 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-slate-950 text-white border-t border-white/10 shadow-xl">
+        <div className="md:hidden bg-[#04172f] text-white border-t border-white/10 shadow-xl">
           <div className="px-6 py-5 flex flex-col gap-1">
             <Link
               to="/"
               onClick={() => handleNavClick('/')}
-              className="py-2.5 text-white/90 hover:text-orange-400"
+              className="py-2.5 text-white/90 hover:text-[#ea580c]"
             >
               Home
             </Link>
@@ -313,7 +313,7 @@ export default function Navbar() {
             <Link
               to="/about"
               onClick={() => handleNavClick('/about')}
-              className="py-2.5 text-white/90 hover:text-orange-400"
+              className="py-2.5 text-white/90 hover:text-[#ea580c]"
             >
               Who We Are
             </Link>
@@ -321,7 +321,7 @@ export default function Navbar() {
             <Link
               to="/training"
               onClick={() => handleNavClick('/training')}
-              className="py-2.5 text-white/90 hover:text-orange-400"
+              className="py-2.5 text-white/90 hover:text-[#ea580c]"
             >
               Training Catalogue
             </Link>
@@ -329,7 +329,7 @@ export default function Navbar() {
             <Link
               to="/hiring"
               onClick={() => handleNavClick('/hiring')}
-              className="py-2.5 text-white/90 hover:text-orange-400"
+              className="py-2.5 text-white/90 hover:text-[#ea580c]"
             >
               Hiring & Selection
             </Link>
@@ -337,7 +337,7 @@ export default function Navbar() {
             <Link
               to="/gallery"
               onClick={() => handleNavClick('/gallery')}
-              className="py-2.5 text-white/90 hover:text-orange-400"
+              className="py-2.5 text-white/90 hover:text-[#ea580c]"
             >
               Gallery
             </Link>
@@ -345,7 +345,7 @@ export default function Navbar() {
             <Link
               to="/contact"
               onClick={() => handleNavClick('/contact')}
-              className="mt-3 inline-flex justify-center rounded-full bg-orange-600 px-5 py-3 text-sm font-semibold text-white hover:bg-orange-700 transition-colors"
+              className="mt-3 inline-flex justify-center rounded-full bg-[#ea580c] px-5 py-3 text-sm font-semibold text-white hover:bg-[#c2410c] transition-colors"
             >
               Contact Us
             </Link>

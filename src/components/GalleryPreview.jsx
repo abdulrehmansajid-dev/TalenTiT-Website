@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import SectionHeader from './SectionHeader'
 
 // ============================================================================
 // Category Detection Helper (matches Gallery.jsx)
@@ -148,14 +149,14 @@ const PreviewAlbumCard = ({ album }) => {
   return (
     <Link
       to="/gallery"
-      className="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5"
+      className="group relative flex h-full flex-col rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md shadow-[#04172f]/5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#ea580c]/35 hover:shadow-lg hover:shadow-[#04172f]/8"
     >
       {/* Image Container */}
       <div className="relative h-56 sm:h-64 overflow-hidden bg-slate-100">
         <img
           src={coverImage.url}
           alt={getDisplayTitle(album)}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-200 ease-out group-hover:scale-105"
           loading="lazy"
           decoding="async"
         />
@@ -163,14 +164,14 @@ const PreviewAlbumCard = ({ album }) => {
       </div>
 
       {/* Content */}
-      <div className="p-4 sm:p-5">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         {/* Category Badge */}
         <div className="mb-2">
           <CategoryBadge category={album.category} />
         </div>
 
         {/* Title */}
-        <h3 className="text-base sm:text-lg font-bold text-slate-950 mb-2 line-clamp-2">
+        <h3 className="card-title text-[1.05rem] sm:text-[1.15rem] mb-2 line-clamp-2">
           {getDisplayTitle(album)}
         </h3>
 
@@ -183,7 +184,7 @@ const PreviewAlbumCard = ({ album }) => {
       </div>
 
       {/* Orange accent on hover */}
-      <div className="absolute inset-0 rounded-3xl border-2 border-orange-600/0 group-hover:border-orange-600/100 transition-colors duration-300 pointer-events-none" />
+      <div className="absolute inset-0 rounded-3xl border-2 border-[#ea580c]/0 group-hover:border-[#ea580c]/100 transition-colors duration-200 pointer-events-none" />
     </Link>
   )
 }
@@ -232,20 +233,15 @@ export default function GalleryPreview() {
   }
 
   return (
-    <section className="py-16 sm:py-20 px-6 sm:px-8 bg-slate-50" id="gallery-preview">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-950 mb-3">
-            Training Gallery
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
-            A glimpse into our training sessions, leadership programs, workshops, and team development experiences.
-          </p>
-        </div>
+    <section className="bg-slate-50" id="gallery-preview">
+      <div className="site-container site-section">
+        <SectionHeader
+          title="Training Gallery"
+          description="A glimpse into our training sessions, leadership programs, workshops, and team development experiences."
+          centered
+        />
 
-        {/* Preview Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
+        <div className="section-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           {previewAlbums.map((album, idx) => (
             <PreviewAlbumCard key={idx} album={album} />
           ))}
@@ -255,7 +251,7 @@ export default function GalleryPreview() {
         <div className="text-center">
           <Link
             to="/gallery"
-            className="inline-flex px-8 py-3.5 rounded-full bg-orange-600 text-white font-semibold hover:bg-orange-700 transition-all duration-200 hover:shadow-lg hover:shadow-orange-600/30"
+            className="btn-primary"
           >
             View Full Gallery
           </Link>

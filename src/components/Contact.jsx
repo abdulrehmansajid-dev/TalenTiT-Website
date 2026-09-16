@@ -15,6 +15,10 @@ export default function Contact() {
   const sendEmail = async (e) => {
     e.preventDefault()
 
+    if (loading) {
+      return
+    }
+
     const formData = new FormData(form.current)
     const payload = Object.fromEntries(formData.entries())
 
@@ -59,31 +63,25 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 sm:py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-5 sm:px-6">
-        <div className="max-w-4xl">
-          <p className="uppercase tracking-[0.25em] text-orange-600 font-semibold text-sm mb-4">
-            Contact TalenTiT
-          </p>
+    <section id="contact" className="bg-white">
+      <div className="site-container site-section">
+        <SectionHeader
+          eyebrow="Contact TalenTiT"
+          title="Contact Us"
+          description="Reach out for training, recruitment, HR outsourcing, or tailored hospitality support. You can expect our reply within 24 to 48 hours."
+        />
 
-          <SectionHeader
-            title="Contact Us"
-            description="Reach out for training, recruitment, HR outsourcing, or tailored hospitality support. You can expect our reply within 24 to 48 hours."
-            className="max-w-3xl"
-          />
-        </div>
+        <div className="section-content grid lg:grid-cols-5 gap-6 items-stretch">
+          <aside className="lg:col-span-2 rounded-3xl p-6 sm:p-7 md:p-8 bg-[#04172f] text-white border border-white/10 shadow-xl shadow-[#04172f]/30">
+            <div className="h-1 w-16 bg-[#ea580c] rounded-full mb-6"></div>
 
-        <div className="mt-12 grid lg:grid-cols-5 gap-6 items-stretch">
-          <aside className="lg:col-span-2 rounded-3xl p-6 sm:p-7 md:p-8 bg-slate-950 text-white border border-slate-800 shadow-xl shadow-slate-900/20">
-            <div className="h-1 w-16 bg-orange-600 rounded-full mb-6"></div>
-
-            <h3 className="text-2xl font-semibold text-white">
-              Contact Information
-            </h3>
+              <h3 className="card-title text-white">
+                Contact Information
+              </h3>
 
             <div className="mt-7 space-y-5 text-white/90 text-sm leading-7">
               <div className="flex gap-3">
-                <span className="mt-1 text-orange-400">
+                <span className="mt-1 text-[#ea580c]">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2.003 5.884l3.172-.793a1 1 0 011.11.417l1.516 2.274a1 1 0 01-.217 1.316l-1.2.96a11.042 11.042 0 005.292 5.292l.96-1.2a1 1 0 011.316-.217l2.274 1.516a1 1 0 01.417 1.11l-.793 3.172a1 1 0 01-.97.757C6.716 20.488-.488 13.284-.488 4.854a1 1 0 01.757-.97H2.003z" />
                   </svg>
@@ -91,14 +89,14 @@ export default function Contact() {
                 <div>
                   <strong>Phone / WhatsApp:</strong>
                   <br />
-                  <a href={`tel:${phoneHref}`} className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors">
+                  <a href={`tel:${phoneHref}`} className="underline decoration-white/30 underline-offset-4 hover:text-[#ea580c] transition-colors">
                     {phoneDisplay}
                   </a>
                 </div>
               </div>
 
               <div className="flex gap-3">
-                <span className="mt-1 text-orange-400">
+                <span className="mt-1 text-[#ea580c]">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2.94 6.34A2 2 0 014.72 5h10.56a2 2 0 011.78 1.34L10 11.25 2.94 6.34z" />
                     <path d="M18 8.12l-7.46 5.32a1 1 0 01-1.08 0L2 8.12V14a2 2 0 002 2h12a2 2 0 002-2V8.12z" />
@@ -107,14 +105,14 @@ export default function Contact() {
                 <div>
                   <strong>Email:</strong>
                   <br />
-                  <a href={`mailto:${contactEmail}`} className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors">
+                  <a href={`mailto:${contactEmail}`} className="underline decoration-white/30 underline-offset-4 hover:text-[#ea580c] transition-colors">
                     {contactEmail}
                   </a>
                 </div>
               </div>
 
               <div className="flex gap-3">
-                <span className="mt-1 text-orange-400">
+                <span className="mt-1 text-[#ea580c]">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M5.05 8.464A7 7 0 1114.95 8.464L10 14.414l-4.95-5.95zM10 11a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
                   </svg>
@@ -127,7 +125,7 @@ export default function Contact() {
               </div>
 
               <div className="flex gap-3">
-                <span className="mt-1 text-orange-400">
+                <span className="mt-1 text-[#ea580c]">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M4 4a1 1 0 011-1h2.586a1 1 0 01.707.293l.414.414a1 1 0 00.707.293H15a1 1 0 011 1v1H4V4zm0 4h12v7a1 1 0 01-1 1H5a1 1 0 01-1-1V8z" clipRule="evenodd" />
                   </svg>
@@ -139,7 +137,7 @@ export default function Contact() {
                     href={websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline decoration-white/30 underline-offset-4 hover:text-orange-300 transition-colors"
+                    className="underline decoration-white/30 underline-offset-4 hover:text-[#ea580c] transition-colors"
                   >
                     talentithospitality.com
                   </a>
@@ -158,15 +156,15 @@ export default function Contact() {
             </div>
           </aside>
 
-          <div className="lg:col-span-3 rounded-3xl p-6 sm:p-7 md:p-8 bg-white border border-slate-200 shadow-xl shadow-slate-900/5">
+          <div className="lg:col-span-3 rounded-3xl p-6 sm:p-7 md:p-8 bg-white border border-slate-200 shadow-md shadow-[#04172f]/5">
             <div className="h-1 w-16 bg-orange-600 rounded-full mb-6"></div>
 
             <div className="mb-6">
-              <h3 className="text-2xl font-semibold text-slate-950">
+              <h3 className="card-title text-[1.5rem]">
                 Get In Touch
               </h3>
 
-              <p className="mt-2 text-sm text-slate-600">
+              <p className="mt-2 card-copy">
                 Fill out the form below and our team will get back to you shortly.
               </p>
             </div>
@@ -182,11 +180,12 @@ export default function Contact() {
               />
 
               <div>
-                <label className="text-sm font-medium text-slate-700 flex items-center gap-2 mb-2">
+                <label htmlFor="contact-name" className="text-sm font-medium text-slate-700 flex items-center gap-2 mb-2">
                   Full name
                 </label>
 
                 <input
+                  id="contact-name"
                   name="name"
                   required
                   autoComplete="name"
@@ -196,11 +195,12 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-slate-700 flex items-center gap-2 mb-2">
+                <label htmlFor="contact-email" className="text-sm font-medium text-slate-700 flex items-center gap-2 mb-2">
                   Email address
                 </label>
 
                 <input
+                  id="contact-email"
                   name="email"
                   type="email"
                   required
@@ -211,11 +211,12 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-slate-700 flex items-center gap-2 mb-2">
+                <label htmlFor="contact-message" className="text-sm font-medium text-slate-700 flex items-center gap-2 mb-2">
                   Message
                 </label>
 
                 <textarea
+                  id="contact-message"
                   name="message"
                   required
                   rows="6"
@@ -228,7 +229,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full sm:w-auto px-8 py-3 bg-orange-600 text-white font-semibold rounded-full shadow-lg shadow-orange-500/20 hover:bg-orange-700 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                  className="btn-primary w-full sm:w-auto"
                 >
                   {loading ? 'Sending...' : 'Send Message'}
                 </button>
