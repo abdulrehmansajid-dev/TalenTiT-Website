@@ -114,13 +114,13 @@ export default function About() {
 
         {/* CEO PROFILE */}
         <div className="mt-12 rounded-[2rem] bg-gradient-to-br from-white to-slate-50 border border-slate-200 shadow-xl shadow-slate-900/5 p-5 sm:p-6 md:p-10">
-          <div className="grid lg:grid-cols-[420px_1fr] gap-8 lg:gap-10 items-start">
+          <div className="grid lg:grid-cols-[360px_1fr] gap-8 lg:gap-10 items-start">
             <div className="space-y-6">
-              <div className="rounded-[1.75rem] overflow-hidden bg-slate-900 shadow-xl">
+              <div className="rounded-full overflow-hidden bg-slate-900 shadow-xl">
                 <img
                   src={ceo}
                   alt="Zamir A. Abbasi"
-                  className="w-full h-[360px] sm:h-[440px] lg:h-[560px] object-cover object-top"
+                  className="aspect-square w-full rounded-full object-cover object-top"
                   loading="lazy"
                   decoding="async"
                 />
@@ -253,13 +253,13 @@ export default function About() {
 
         {/* COO PROFILE */}
         <div className="mt-12 rounded-[1.25rem] bg-white border border-slate-200 shadow-lg p-5 sm:p-6 md:p-8">
-          <div className="grid lg:grid-cols-[320px_1fr] gap-6 lg:gap-8 items-start">
+          <div className="grid lg:grid-cols-[280px_1fr] gap-6 lg:gap-8 items-start">
             <div className="space-y-4">
-              <div className="rounded-[1.25rem] overflow-hidden bg-slate-900 shadow">
+              <div className="rounded-full overflow-hidden bg-slate-900 shadow">
                 <img
                   src={coo}
                   alt="Zeeshan Abbasi"
-                  className="w-full h-[280px] sm:h-[320px] lg:h-[360px] object-cover object-top"
+                  className="aspect-square w-full rounded-full object-cover object-top"
                   loading="lazy"
                   decoding="async"
                 />
