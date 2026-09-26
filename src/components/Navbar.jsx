@@ -156,7 +156,14 @@ export default function Navbar() {
   )
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#04172f]/95 text-white border-b border-white/10 shadow-lg shadow-[#04172f]/20 backdrop-blur-xl">
+    <header
+  className="sticky top-0 z-50 w-full bg-[#04172f]/95 text-white backdrop-blur-xl"
+  style={{
+    borderBottom: '1.5px solid rgba(197, 160, 89, 0.95)',
+    boxShadow:
+      '0 1px 0 rgba(212, 175, 55, 0.10), 0 8px 18px rgba(4, 23, 47, 0.18)',
+  }}
+>
       <div className="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between gap-4">
         <Link
           to="/"

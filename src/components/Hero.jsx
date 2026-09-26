@@ -1,5 +1,6 @@
 import React from 'react'
 import heroBg from '../assets/new-hero-bg.webp'
+import handshakeImg from '../assets/luxury_gold_handshake_icon.png'
 
 const gold = '#D4AF37'
 
@@ -177,6 +178,121 @@ function TalentCard({ icon, title, text }) {
   )
 }
 
+function CollaborationPanel() {
+  return (
+    <aside
+      className="collaboration-panel"
+      aria-labelledby="collaboration-title"
+    >
+      {/* Left decoration */}
+      <div className="collaboration-left" aria-hidden="true">
+        <svg
+          className="collaboration-left-waves"
+          viewBox="0 0 320 120"
+          fill="none"
+          preserveAspectRatio="none"
+        >
+          <path d="M-8 91C42 66 85 59 128 63C171 67 215 72 328 45" />
+          <path d="M-8 101C43 78 87 72 130 76C173 80 218 84 328 59" />
+          <path d="M-8 110C44 89 89 84 132 88C175 92 220 96 328 75" />
+          <path d="M-8 117C46 100 91 96 134 100C177 104 223 107 328 91" />
+        </svg>
+
+        <img
+          src={handshakeImg}
+          alt=""
+          className="collaboration-handshake-image"
+        />
+
+        <span className="collaboration-separator" />
+      </div>
+
+      {/* Center content */}
+      <div className="collaboration-content">
+        <div className="collaboration-heading">
+          <span aria-hidden="true" />
+          <h2 id="collaboration-title">
+            In Collaboration with Peerless
+          </h2>
+          <span aria-hidden="true" />
+        </div>
+
+        <p className="collaboration-primary-line">
+          In collaboration with peerless Training &amp; Development{' '}
+          <a
+            href="https://www.peerless.ae"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            www.peerless.ae
+          </a>
+        </p>
+
+        <p className="collaboration-secondary-line">
+          Our Training &amp; Recruitment Services are now available in Saudi Arabia. A Collaboration MoU has been signed between TalenTiT &amp; Peerless (Al Madina &amp; Al Riyadh)
+        </p>
+      </div>
+
+      {/* Right decoration */}
+      <div className="collaboration-right" aria-hidden="true">
+        <svg
+          className="collaboration-right-waves"
+          viewBox="0 0 390 130"
+          fill="none"
+          preserveAspectRatio="none"
+        >
+          <path d="M-12 98C55 66 111 58 161 64C214 70 272 77 402 38" />
+          <path d="M-12 108C57 79 113 72 163 78C216 84 274 90 402 54" />
+          <path d="M-12 117C59 91 116 85 166 91C219 97 277 102 402 72" />
+          <path d="M-12 124C61 102 118 97 169 103C222 109 280 113 402 90" />
+        </svg>
+
+        <svg
+          className="collaboration-skyline"
+          viewBox="0 0 360 160"
+          fill="none"
+          preserveAspectRatio="xMaxYMax meet"
+        >
+          <path d="M0 158H360" />
+
+          {/* low-rise foreground */}
+          <path d="M22 158v-22h18v22M45 158v-31h19v31M69 158v-25h17v25" />
+          <path d="M91 158v-38h19v38M115 158v-28h17v28" />
+
+          {/* dense tower cluster */}
+          <path d="M138 158V89h17v69" />
+          <path d="M160 158V66h20v92" />
+          <path d="M185 158V96h16v62" />
+          <path d="M206 158V77h19v81" />
+          <path d="M229 158V91h15v67" />
+
+          {/* Kingdom Centre-inspired tower */}
+          <path d="M250 158V31h30v127" />
+          <path d="M250 31h30" />
+          <path d="M255 31c2-11 7-19 10-24 3 5 8 13 10 24" />
+          <path d="M255 43h20" />
+          <path d="M257 43c2 11 5 18 8 24 3-6 6-13 8-24" />
+
+          {/* smaller iconic towers */}
+          <path d="M287 158V83h15v75" />
+          <path d="M294.5 83V65" />
+          <path d="M290 69l4.5-8 4.5 8" />
+          <path d="M308 158V101h14v57" />
+
+          {/* palms */}
+          <path d="M329 158v-40" />
+          <path d="M329 120c-10-8-15-15-16-22M329 120c10-8 15-15 16-22" />
+          <path d="M329 120c-12-2-20-5-26-10M329 120c12-2 20-5 26-10" />
+
+          <path d="M348 158v-32" />
+          <path d="M348 128c-8-7-12-12-13-18M348 128c8-7 12-12 13-18" />
+          <path d="M348 128c-10-2-16-4-21-8M348 128c10-2 16-4 21-8" />
+        </svg>
+      </div>
+    </aside>
+  )
+}
+
 export default function Hero() {
   return (
     <section
@@ -196,13 +312,14 @@ export default function Hero() {
             'linear-gradient(90deg, rgba(18,25,43,0.28) 0%, rgba(18,25,43,0.08) 22%, rgba(18,25,43,0) 38%, rgba(18,25,43,0) 62%, rgba(18,25,43,0.08) 78%, rgba(18,25,43,0.28) 100%)',
         }}
       />
-      <div className="relative z-10 mx-auto w-full max-w-[1760px] px-5 pb-8 pt-[60px] sm:px-8 xl:px-10">
-        <div className="mb-8 flex items-center justify-center gap-4">
-          <span className="hidden h-px w-[88px] bg-[#C5A059] sm:block" />
-          <h1 className="text-center text-[17px] font-semibold uppercase leading-[1.2] tracking-[0.24em] text-[#C5A059]">
+      <div className="relative z-10 mx-auto w-full max-w-[1760px] px-5 pb-8 pt-[42px] sm:px-8 xl:px-10">
+        <CollaborationPanel />
+        <div className="mb-7 flex items-center justify-center gap-4">
+          <span className="hidden h-px w-[96px] bg-[#D4AF37]/85 sm:block" />
+          <h1 className="text-center text-[18px] font-semibold uppercase leading-[1.2] tracking-[0.22em] text-[#D4AF37] drop-shadow-[0_1px_1px_rgba(0,0,0,0.28)]">
             Building High-Performance Teams
           </h1>
-          <span className="hidden h-px w-[88px] bg-[#C5A059] sm:block" />
+          <span className="hidden h-px w-[96px] bg-[#D4AF37]/85 sm:block" />
         </div>
 
         <div className="grid grid-cols-1 items-start gap-8 xl:grid-cols-[minmax(0,1.15fr)_minmax(180px,0.7fr)_minmax(0,1.15fr)] xl:gap-0 2xl:grid-cols-[minmax(0,1fr)_minmax(320px,0.72fr)_minmax(0,1fr)]">
