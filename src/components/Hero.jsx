@@ -212,13 +212,13 @@ function CollaborationPanel() {
         <div className="collaboration-heading">
           <span aria-hidden="true" />
           <h2 id="collaboration-title">
-            In Collaboration with Peerless
+            KSA Collaboration
           </h2>
           <span aria-hidden="true" />
         </div>
 
         <p className="collaboration-primary-line">
-          In collaboration with peerless Training &amp; Development{' '}
+          In collaboration with Peerless Training &amp; Development{' '}
           <a
             href="https://www.peerless.ae"
             target="_blank"
