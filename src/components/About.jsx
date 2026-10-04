@@ -114,7 +114,7 @@ export default function About() {
                 <img
                   src={ceo}
                   alt="Zamir A. Abbasi"
-                  className="aspect-square w-full rounded-full object-cover object-top"
+                  className="aspect-square w-full rounded-full object-cover object-[center_20%]"
                   loading="lazy"
                   decoding="async"
                 />
