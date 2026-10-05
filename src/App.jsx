@@ -3,7 +3,7 @@ import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import Roles from './components/Roles'
+import TrainingTasks from './components/TrainingTasks'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -23,7 +23,7 @@ function Home() {
       <Hiring />
       <Services />
       <GalleryPreview />
-      <Roles />
+      <TrainingTasks />
       <Testimonials />
       <SupportTeam />
       <Contact />
@@ -119,7 +119,8 @@ export default function App() {
         <Route path="/training" element={<ScrollToSection />} />
         <Route path="/hiring" element={<ScrollToSection />} />
         <Route path="/services" element={<ScrollToSection />} />
-        <Route path="/roles" element={<ScrollToSection />} />
+        <Route path="/training-tasks" element={<ScrollToSection />} />
+        <Route path="/roles" element={<Navigate to="/training-tasks" replace />} />
         <Route path="/testimonials" element={<ScrollToSection />} />
         <Route path="/contact" element={<ScrollToSection />} />
 

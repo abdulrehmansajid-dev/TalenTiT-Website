@@ -220,11 +220,11 @@ function CollaborationPanel() {
         <p className="collaboration-primary-line">
           In collaboration with Peerless Training &amp; Development{' '}
           <a
-            href="https://www.peerless.ae"
+            href="https://www.peerless.sa"
             target="_blank"
             rel="noopener noreferrer"
           >
-            www.peerless.ae
+            www.peerless.sa
           </a>
         </p>
 

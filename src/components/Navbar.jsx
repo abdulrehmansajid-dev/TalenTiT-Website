@@ -270,7 +270,7 @@ export default function Navbar() {
             )}
           </div>
 
-          <NavItem to="/hiring">Hiring & Selection</NavItem>
+          <NavItem to="/training-tasks">15-Minutes Training</NavItem>
           <NavItem to="/gallery">Gallery</NavItem>
           <NavItem to="/contact">Contact Us</NavItem>
         </nav>
@@ -334,11 +334,11 @@ export default function Navbar() {
             </Link>
 
             <Link
-              to="/hiring"
-              onClick={() => handleNavClick('/hiring')}
+              to="/training-tasks"
+              onClick={() => handleNavClick('/training-tasks')}
               className="py-2.5 text-white/90 hover:text-[#ea580c]"
             >
-              Hiring & Selection
+              15-Minutes Training
             </Link>
 
             <Link
