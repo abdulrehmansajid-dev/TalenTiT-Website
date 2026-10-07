@@ -322,10 +322,10 @@ export default function Hero() {
           <span className="hidden h-px w-[96px] bg-[#D4AF37]/85 sm:block" />
         </div>
 
-        <div className="grid grid-cols-1 items-start gap-8 xl:grid-cols-[minmax(0,1.15fr)_minmax(180px,0.7fr)_minmax(0,1.15fr)] xl:gap-0 2xl:grid-cols-[minmax(0,1fr)_minmax(320px,0.72fr)_minmax(0,1fr)]">
+        <div className="grid grid-cols-1 items-stretch gap-8 xl:grid-cols-[minmax(0,1.15fr)_minmax(180px,0.7fr)_minmax(0,1.15fr)] xl:gap-0 2xl:grid-cols-[minmax(0,1fr)_minmax(320px,0.72fr)_minmax(0,1fr)]">
           <article
             id="hospitality-training"
-            className="relative min-w-0 px-6 pb-7 pt-7 sm:px-7 sm:pb-8 sm:pt-9"
+            className="relative flex h-full min-w-0 flex-col px-6 pb-7 pt-7 sm:px-7 sm:pb-8 sm:pt-9"
             style={panelStyle}
           >
             <span className="pointer-events-none absolute inset-y-0 left-0 w-[3px] bg-[#C5A059]/75" />
@@ -344,17 +344,19 @@ export default function Hero() {
               Our team of training experts brings a wealth of experience from the world’s leading hotel chains. Having set the highest standards of service and quality for top global organizations, we are passionate about extending that same excellence to partners who believe that exceptional service is the backbone of hospitality.
             </p>
 
-            <SectionLabel>Our Specialized Offerings</SectionLabel>
-            <div className="mt-3.5 grid grid-cols-1 gap-x-3 gap-y-3.5 sm:grid-cols-2">
-              {trainingOfferings.map((item) => (
-                <TrainingCard key={item.title} {...item} />
-              ))}
+            <div className="mt-auto">
+              <SectionLabel>Our Specialized Offerings</SectionLabel>
+              <div className="mt-3.5 grid grid-cols-1 gap-x-3 gap-y-3.5 sm:grid-cols-2">
+                {trainingOfferings.map((item) => (
+                  <TrainingCard key={item.title} {...item} />
+                ))}
+              </div>
             </div>
           </article>
 
-          <div className="relative hidden min-w-0 xl:flex justify-center">
+          <div className="relative hidden min-w-0 self-stretch xl:flex justify-center">
             <div
-              className="mt-2 h-[400px] w-px"
+              className="mt-2 h-[calc(100%-0.5rem)] w-px"
               style={{
                 background:
                   'linear-gradient(to bottom, rgba(197,160,89,.75), rgba(197,160,89,.05))',
@@ -364,7 +366,7 @@ export default function Hero() {
 
           <article
             id="talent-hunt"
-            className="relative min-w-0 px-6 pb-7 pt-7 sm:px-8 sm:pb-8 sm:pt-9"
+            className="relative flex h-full min-w-0 flex-col px-6 pb-7 pt-7 sm:px-8 sm:pb-8 sm:pt-9"
             style={panelStyle}
           >
             <span className="pointer-events-none absolute inset-y-0 right-0 w-[3px] bg-[#C5A059]/75" />
@@ -382,17 +384,28 @@ export default function Hero() {
             <p className="mt-5 text-[13.5px] font-normal leading-[1.65] tracking-[0.01em] text-[#CBD5E1]">
               We understand the value of a precise Talent Hunt. As passionate recruiters with over two decades of hospitality recruitment expertise, we apply rigorous due diligence to identify candidates whose skills and behavioral traits align perfectly with your organizational needs, culture and customer service philosophy.
             </p>
-            <p className="mt-3 text-[13.5px] font-normal leading-[1.65] tracking-[0.01em] text-[#CBD5E1]">
-              Aligning our targets for KSA Vision 2030, we are fully prepared to engage Saudi talent as our No.1 priority.
+            <p className="mt-4 text-[13.5px] font-normal leading-[1.65] tracking-[0.01em] text-[#CBD5E1]">
+              We are not just typical recruiters, We are{' '}
+              <span className="italic text-[#D4AF37]">Industry Insiders</span>
             </p>
 
-            <SectionLabel>Why Choose Us?</SectionLabel>
-            <div className="mt-3.5 flex flex-col gap-3">
-              {talentBenefits.map((item) => (
-                <TalentCard key={item.title} {...item} />
-              ))}
+            <div className="mt-auto">
+              <SectionLabel>Why Choose Us?</SectionLabel>
+              <div className="mt-3.5 flex flex-col gap-3">
+                {talentBenefits.map((item) => (
+                  <TalentCard key={item.title} {...item} />
+                ))}
+              </div>
             </div>
           </article>
+        </div>
+
+        <div className="mt-8 mb-2 flex items-center justify-center gap-4">
+          <span className="hidden h-px w-[72px] bg-[#D4AF37]/75 sm:block" />
+          <p className="text-center text-[20px] font-medium italic leading-snug tracking-[0.04em] text-[#D4AF37] [font-family:'Cormorant_Garamond',Georgia,serif] drop-shadow-[0_1px_1px_rgba(0,0,0,0.28)] sm:text-[18px]">
+            Expert Hoteliers Hire Future Hoteliers
+          </p>
+          <span className="hidden h-px w-[72px] bg-[#D4AF37]/75 sm:block" />
         </div>
       </div>
     </section>
