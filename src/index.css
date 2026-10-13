@@ -750,11 +750,13 @@ h4 {
   }
 
   .profile-name {
-    font-size: clamp(1.875rem, 1.5rem + 1.3vw, 2.375rem);
+    font-size: clamp(2rem, 1.55rem + 1.5vw, 2.75rem);
 
-    line-height: 1.15;
+    line-height: 1.12;
 
     font-weight: 600;
+
+    letter-spacing: 0.01em;
 
     color: #04172f;
   }
