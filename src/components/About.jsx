@@ -468,19 +468,33 @@ export default function About() {
               <div className="mt-5 h-1 w-16 rounded-full bg-orange-600" />
             </div>
 
-            <ul className="mt-8 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-3 sm:gap-3.5 md:grid-cols-4 lg:grid-cols-6">
+            <ul className="mt-8 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-3 sm:gap-3.5 md:grid-cols-4 lg:grid-cols-5">
               {cooOrganizations.map((org) => (
                 <li key={org.name}>
                   <div className="group flex h-full flex-col items-center rounded-2xl border border-slate-200 bg-slate-50/60 px-3 py-4 text-center shadow-sm shadow-[#04172f]/5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#ea580c]/35 hover:shadow-md hover:shadow-[#04172f]/8 sm:px-3.5 sm:py-5">
-                    <div className="flex h-[4.5rem] w-full items-center justify-center sm:h-20 md:h-[5.25rem]">
+                    <div
+                      className={`flex w-full items-center justify-center ${
+                        org.size === 'xl'
+                          ? 'h-28 sm:h-32 md:h-36'
+                          : org.size === 'lg'
+                            ? 'h-24 sm:h-28 md:h-[7.25rem]'
+                            : 'h-[5.25rem] sm:h-24 md:h-28'
+                      }`}
+                    >
                       <img
                         src={org.logo}
                         alt={`${org.name} logo`}
-                        className="max-h-full max-w-[90%] object-contain"
+                        className={`object-contain ${
+                          org.size === 'xl'
+                            ? 'max-h-full max-w-full scale-[1.35]'
+                            : org.size === 'lg'
+                              ? 'max-h-full max-w-[96%] scale-110'
+                              : 'max-h-full max-w-[92%]'
+                        }`}
                         loading="lazy"
                         decoding="async"
-                        width={96}
-                        height={96}
+                        width={112}
+                        height={112}
                       />
                     </div>
 

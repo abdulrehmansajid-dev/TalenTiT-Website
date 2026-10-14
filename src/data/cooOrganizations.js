@@ -4,7 +4,6 @@ import ctg from '../assets/partners/03_ctg.webp'
 import paf from '../assets/partners/04_paf.webp'
 import abnlp from '../assets/partners/05_abnlp.webp'
 import tlta from '../assets/partners/06_tlta.webp'
-import abnlpCoaching from '../assets/partners/07_abnlp_coaching.webp'
 import wahMedical from '../assets/partners/08_wah_medical_college.webp'
 import armyMedical from '../assets/partners/09_army_medical_college.webp'
 import hubco from '../assets/partners/10_hubco_laraib.webp'
@@ -21,24 +20,23 @@ import comsats from '../assets/partners/20_comsats.webp'
 import aghosh from '../assets/partners/21_aghosh.webp'
 
 const cooOrganizations = [
-  { name: 'Air University', logo: airUniversity },
-  { name: 'Nayatel', logo: nayatel },
+  { name: 'Air University', logo: airUniversity, size: 'lg' },
+  { name: 'Nayatel', logo: nayatel, size: 'lg' },
   { name: 'China Three Gorges (CTG)', logo: ctg },
   { name: 'Pakistan Air Force', logo: paf },
   { name: 'ABNLP', logo: abnlp },
   { name: 'Time Line Therapy Association', logo: tlta },
-  { name: 'ABNLP Coaching Division', logo: abnlpCoaching },
   { name: 'Wah Medical College', logo: wahMedical },
   { name: 'Army Medical College', logo: armyMedical },
-  { name: 'HUBCO / Laraib Energy', logo: hubco },
+  { name: 'HUBCO', logo: hubco },
   { name: 'FAST / NUCES', logo: fastNuces },
-  { name: 'WAPDA', logo: wapda },
+  { name: 'WAPDA', logo: wapda, size: 'lg' },
   { name: 'NUST', logo: nust },
   { name: 'IEST', logo: iest },
   { name: 'PIDE', logo: pide },
   { name: 'PIPS', logo: pips },
   { name: 'Shifa International', logo: shifa },
-  { name: 'Telenor', logo: telenor },
+  { name: 'Telenor', logo: telenor, size: 'xl' },
   { name: 'S&P Global', logo: spGlobal },
   { name: 'COMSATS University', logo: comsats },
   { name: 'Alkhidmat Aghosh', logo: aghosh },
