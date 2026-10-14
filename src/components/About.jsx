@@ -2,6 +2,7 @@ import React from 'react'
 import ceo from '../assets/ceo_new.jpeg'
 import SectionHeader from './SectionHeader'
 import coo from '../assets/coo_new_2.jpeg'
+import cooOrganizations from '../data/cooOrganizations'
 
 export default function About() {
   const mainServices = [
@@ -448,6 +449,48 @@ export default function About() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* REPUTED ORGANIZATIONS */}
+          <div className="mx-auto mt-10 max-w-5xl rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm shadow-[#04172f]/5 sm:p-6 md:p-8">
+            <div className="max-w-3xl">
+              <p className="eyebrow">Career Affiliations</p>
+
+              <h3 className="section-title">
+                Reputed Organizations Zeeshan Has Worked With
+              </h3>
+
+              <p className="section-text">
+                Trusted across academia, industry, healthcare, and professional boards through
+                training, consulting, and leadership engagements.
+              </p>
+
+              <div className="mt-5 h-1 w-16 rounded-full bg-orange-600" />
+            </div>
+
+            <ul className="mt-8 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-3 sm:gap-3.5 md:grid-cols-4 lg:grid-cols-6">
+              {cooOrganizations.map((org) => (
+                <li key={org.name}>
+                  <div className="group flex h-full flex-col items-center rounded-2xl border border-slate-200 bg-slate-50/60 px-3 py-4 text-center shadow-sm shadow-[#04172f]/5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#ea580c]/35 hover:shadow-md hover:shadow-[#04172f]/8 sm:px-3.5 sm:py-5">
+                    <div className="flex h-[4.5rem] w-full items-center justify-center sm:h-20 md:h-[5.25rem]">
+                      <img
+                        src={org.logo}
+                        alt={`${org.name} logo`}
+                        className="max-h-full max-w-[90%] object-contain"
+                        loading="lazy"
+                        decoding="async"
+                        width={96}
+                        height={96}
+                      />
+                    </div>
+
+                    <p className="mt-3 text-[11px] font-medium leading-snug text-slate-600 sm:text-xs">
+                      {org.name}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
